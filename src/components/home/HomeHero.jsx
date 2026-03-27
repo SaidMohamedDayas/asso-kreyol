@@ -4,26 +4,22 @@ import SectionContainer from "@/components/common/SectionContainer";
 
 export default function HomeHero({ hero }) {
   return (
-    <SectionContainer className="pt-8 sm:pt-12">
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
-        <div className="surface-card relative isolate overflow-hidden px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/45 to-transparent"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-12 bottom-0 h-44 w-44 rounded-full bg-accent/12 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-0 h-48 w-48 rounded-full bg-primary/10 blur-3xl"
-          />
+    <SectionContainer className="pt-10 sm:pt-16">
+      <div className="surface-card relative isolate overflow-hidden px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(186,33,29,0.1),transparent_26%),radial-gradient(circle_at_78%_24%,rgba(238,180,39,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(49,97,42,0.08),transparent_28%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/45 to-transparent"
+        />
 
-          <div className="relative flex h-full flex-col gap-8">
+        <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center">
+          <div className="space-y-8">
             <div className="space-y-5">
               <p className="eyebrow">{hero.eyebrow}</p>
-              <h1 className="max-w-4xl text-5xl sm:text-6xl lg:text-[4.9rem]">
+              <h1 className="max-w-4xl text-5xl sm:text-6xl xl:text-[5.4rem]">
                 {hero.title}
               </h1>
               <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
@@ -39,44 +35,66 @@ export default function HomeHero({ hero }) {
                 {hero.secondaryCta.label}
               </SecondaryButton>
             </div>
+
+            <div className="fine-rule max-w-xl" />
           </div>
+
+          <aside className="relative min-h-[21rem] rounded-[2rem] border border-white/75 bg-[linear-gradient(160deg,rgba(255,255,255,0.84),rgba(255,255,255,0.56))] p-5 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:min-h-[24rem] sm:p-7">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-8 top-0 h-32 w-32 rounded-full bg-primary/12 blur-3xl"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-0 left-0 h-36 w-36 rounded-full bg-accent/16 blur-3xl"
+            />
+
+            <div className="relative flex h-full flex-col justify-between gap-6">
+              <div className="rounded-[1.75rem] border border-white/80 bg-white/72 p-5 shadow-[0_22px_48px_-36px_rgba(29,25,21,0.26)] sm:p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
+                  {hero.visual.label}
+                </p>
+                <h2 className="mt-4 max-w-sm text-4xl sm:text-[2.7rem]">
+                  {hero.visual.title}
+                </h2>
+                <p className="mt-4 max-w-md text-sm leading-7 text-muted sm:text-base">
+                  {hero.visual.description}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                {hero.highlights.map((item) => (
+                  <span
+                    key={item.title}
+                    className="inline-flex items-center rounded-full border border-white/80 bg-white/68 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary shadow-[0_18px_34px_-28px_rgba(29,25,21,0.22)]"
+                  >
+                    {item.title}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </aside>
         </div>
 
-        <div className="surface-card relative overflow-hidden px-5 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(238,180,39,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(49,97,42,0.12),transparent_28%)]"
-          />
-
-          <div className="relative flex h-full flex-col gap-4">
-            <div className="rounded-[1.8rem] border border-white/65 bg-white/70 p-5 shadow-[0_24px_54px_-36px_rgba(29,25,21,0.28)]">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
-                {hero.visual.label}
+        <div className="relative mt-6 grid gap-4 md:grid-cols-3">
+          {hero.highlights.map((item, index) => (
+            <article
+              key={item.title}
+              className="rounded-[1.6rem] border border-white/75 bg-white/66 px-5 py-5 shadow-[0_20px_44px_-36px_rgba(29,25,21,0.24)] backdrop-blur transition-transform duration-300 hover:-translate-y-1 sm:px-6 sm:py-6"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
+                  {item.title}
+                </p>
+                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary/70">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+                {item.description}
               </p>
-              <h2 className="mt-4 max-w-sm text-4xl">{hero.visual.title}</h2>
-              <p className="mt-4 max-w-sm text-sm leading-7 text-muted sm:text-base">
-                {hero.visual.description}
-              </p>
-            </div>
-
-            <div className="grid flex-1 gap-3 sm:grid-cols-2">
-              {hero.highlights.map((item, index) => (
-                <article
-                  key={item.title}
-                  className={`rounded-[1.6rem] border border-white/70 bg-white/60 px-5 py-5 shadow-[0_20px_48px_-40px_rgba(29,25,21,0.24)] backdrop-blur ${
-                    index === hero.highlights.length - 1 ? "sm:col-span-2" : ""
-                  }`}
-                >
-                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-secondary">
-                    {item.title}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
-                    {item.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </SectionContainer>
