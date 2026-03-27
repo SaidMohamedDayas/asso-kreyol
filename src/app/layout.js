@@ -22,6 +22,10 @@ export const metadata = {
   },
   description: site.description,
   applicationName: site.name,
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {

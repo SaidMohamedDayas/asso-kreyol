@@ -3,6 +3,8 @@ import socials from "@/data/socials";
 import site from "@/data/site";
 
 const homeData = {
+  seoDescription:
+    "Accueil du site Association Kréyol, autour de la mémoire, de la culture et de la transmission.",
   hero: {
     eyebrow: site.name,
     title: "Faire place à la mémoire, à la culture et à la transmission kréyoles.",

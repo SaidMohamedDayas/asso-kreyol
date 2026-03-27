@@ -4,7 +4,7 @@ const site = {
   brandLabel: "Association culturelle",
   slogan: "TODO - Slogan de l'association",
   description:
-    "TODO - Description institutionnelle courte du site et de l'association.",
+    "Site vitrine culturel de l’Association Kréyol, entre mémoire, culture et transmission.",
   footerDescription:
     "TODO - Une courte présentation institutionnelle de l'association viendra préciser sa mission, sa présence et ses actions.",
   contact: {

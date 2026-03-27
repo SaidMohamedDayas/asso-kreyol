@@ -9,6 +9,12 @@ import QuickContactTeaser from "@/components/home/QuickContactTeaser";
 import SocialShowcase from "@/components/home/SocialShowcase";
 import SiteFrame from "@/components/layout/SiteFrame";
 import homeData from "@/data/home";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata = createPageMetadata({
+  title: "Accueil",
+  description: homeData.seoDescription,
+});
 
 export default function Home() {
   return (

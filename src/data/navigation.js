@@ -50,6 +50,7 @@ export {
   contactLink,
   footerGroups,
   getNavigationItem,
+  getNavigationItems,
   mobileNavigationNote,
   primaryNavigation,
 };

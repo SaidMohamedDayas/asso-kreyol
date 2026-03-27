@@ -5,13 +5,14 @@ import SiteFrame from "@/components/layout/SiteFrame";
 import InfoCardGrid from "@/components/shared/InfoCardGrid";
 import PageCta from "@/components/shared/PageCta";
 import { getPublicPage } from "@/data/pages";
+import { createPageMetadata } from "@/lib/metadata";
 
 const page = getPublicPage("partenaires");
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: page.title,
-  description: page.hero.description,
-};
+  description: page.seoDescription,
+});
 
 export default function PartenairesPage() {
   return (

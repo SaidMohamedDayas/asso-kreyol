@@ -6,13 +6,14 @@ import InfoCardGrid from "@/components/shared/InfoCardGrid";
 import PageCta from "@/components/shared/PageCta";
 import VisualMosaic from "@/components/shared/VisualMosaic";
 import { getPublicPage } from "@/data/pages";
+import { createPageMetadata } from "@/lib/metadata";
 
 const page = getPublicPage("archives");
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: page.title,
-  description: page.hero.description,
-};
+  description: page.seoDescription,
+});
 
 export default function ArchivesPage() {
   return (

@@ -20,6 +20,8 @@ function buildPublicPage(href, content) {
     href,
     title,
     ...content,
+    seoDescription:
+      content.seoDescription || content.hero?.description || site.description,
     hero: {
       eyebrow: site.name,
       title,
@@ -32,6 +34,8 @@ function buildPublicPage(href, content) {
 
 const publicPages = {
   association: buildPublicPage("/association", {
+    seoDescription:
+      "Présentation de l’Association Kréyol, de son cadre, de sa mission et de ses repères de travail.",
     hero: {
       eyebrow: "Repères institutionnels",
       description:
@@ -166,6 +170,8 @@ const publicPages = {
     },
   }),
   memoiresHistoire: buildPublicPage("/memoires-histoire", {
+    seoDescription:
+      "Une page dédiée aux récits, archives, repères historiques et transmissions mémorielles.",
     hero: {
       eyebrow: "Patrimoine vivant",
       description:
@@ -290,6 +296,8 @@ const publicPages = {
     },
   }),
   artsFolklore: buildPublicPage("/arts-folklore", {
+    seoDescription:
+      "Une page consacrée aux pratiques culturelles, aux formats publics et aux expressions artistiques.",
     hero: {
       eyebrow: "Expressions culturelles",
       description:
@@ -450,6 +458,8 @@ const publicPages = {
     },
   }),
   langueTransmission: buildPublicPage("/langue-transmission", {
+    seoDescription:
+      "Une rubrique dédiée à la langue, à la pédagogie et à la circulation des savoirs.",
     hero: {
       eyebrow: "Langue & pédagogie",
       description:
@@ -537,6 +547,8 @@ const publicPages = {
     },
   }),
   engagements: buildPublicPage("/engagements", {
+    seoDescription:
+      "Les grands repères, intentions et lignes de travail portés par l’Association Kréyol.",
     hero: {
       eyebrow: "Positionnement",
       description:
@@ -633,6 +645,8 @@ const publicPages = {
     },
   }),
   partenaires: buildPublicPage("/partenaires", {
+    seoDescription:
+      "Une présentation sobre des coopérations, soutiens et possibilités de partenariat.",
     hero: {
       eyebrow: "Collaborations",
       description:
@@ -705,6 +719,8 @@ const publicPages = {
     },
   }),
   archives: buildPublicPage("/archives", {
+    seoDescription:
+      "Une base documentaire en construction autour de ressources, repères et parcours d’archives.",
     hero: {
       eyebrow: "Ressources & fonds",
       description:
@@ -764,6 +780,8 @@ const publicPages = {
     },
   }),
   contact: buildPublicPage("/contact", {
+    seoDescription:
+      "Les principales informations pour entrer en relation avec l’Association Kréyol.",
     hero: {
       eyebrow: "Prendre lien",
       description:
