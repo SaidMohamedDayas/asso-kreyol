@@ -26,7 +26,7 @@ export default function PageCta({
   return (
     <aside
       className={cn(
-        "surface-card relative isolate grid gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end",
+        "surface-card relative isolate grid gap-5 px-5 py-5 sm:gap-6 sm:px-8 sm:py-7 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end",
         variantClasses[variant] || variantClasses.default,
         className
       )}
@@ -46,22 +46,27 @@ export default function PageCta({
 
       <div className="relative space-y-3">
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <SectionHeading as="h2" className="max-w-none text-4xl sm:text-5xl">
+        <SectionHeading
+          as="h2"
+          className="max-w-none text-[2rem] sm:text-4xl xl:text-5xl"
+        >
           {title}
         </SectionHeading>
         {description ? (
-          <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
+          <p className="max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
             {description}
           </p>
         ) : null}
       </div>
 
-      <div className="relative flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+      <div className="relative flex flex-col gap-3 sm:flex-row xl:flex-col 2xl:flex-row">
         {primaryAction ? (
-          <PrimaryButton href={primaryAction.href}>{primaryAction.label}</PrimaryButton>
+          <PrimaryButton href={primaryAction.href} className="w-full sm:w-auto">
+            {primaryAction.label}
+          </PrimaryButton>
         ) : null}
         {secondaryAction ? (
-          <SecondaryButton href={secondaryAction.href}>
+          <SecondaryButton href={secondaryAction.href} className="w-full sm:w-auto">
             {secondaryAction.label}
           </SecondaryButton>
         ) : null}

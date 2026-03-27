@@ -13,15 +13,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-border/80 bg-background/88 backdrop-blur">
       <div className="site-container">
-        <div className="flex min-h-20 items-center gap-4 py-3">
+        <div className="flex min-h-[4.25rem] items-center gap-3 py-2.5 sm:min-h-20 sm:gap-4 sm:py-3">
           <Link
             href="/"
-            className="min-w-0 rounded-2xl px-1 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green"
+            className="min-w-0 max-w-[calc(100vw-6.5rem)] rounded-2xl px-1 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green sm:max-w-none"
           >
-            <span className="block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-secondary">
+            <span className="block text-[0.62rem] font-bold uppercase tracking-[0.22em] text-secondary sm:text-[0.7rem] sm:tracking-[0.28em]">
               {site.brandLabel}
             </span>
-            <span className="mt-1 block truncate font-serif text-[1.8rem] leading-none tracking-[-0.04em] text-foreground">
+            <span className="mt-1 block truncate font-serif text-[1.45rem] leading-none tracking-[-0.04em] text-foreground sm:text-[1.8rem]">
               {site.name}
             </span>
           </Link>
@@ -47,7 +47,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4 pb-3">
+        <div className="flex items-center justify-between gap-3 pb-2 sm:gap-4 sm:pb-3">
           <p className="hidden max-w-xl text-sm leading-6 text-muted xl:block">
             {site.slogan}
           </p>

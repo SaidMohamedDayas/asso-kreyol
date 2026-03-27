@@ -26,7 +26,7 @@ export default function MemoiresHistoirePage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
@@ -37,7 +37,9 @@ export default function MemoiresHistoirePage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.intro.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.intro.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.intro.aside.description}
             </p>
@@ -47,7 +49,7 @@ export default function MemoiresHistoirePage() {
 
       <SectionContainer className="pt-0">
         <div className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.9))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-stretch">
+          <div className="grid gap-5 sm:gap-6 xl:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] xl:items-stretch">
             <ContentBlock
               eyebrow={page.sections.cycle.eyebrow}
               title={page.sections.cycle.title}
@@ -59,7 +61,7 @@ export default function MemoiresHistoirePage() {
               <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
                 {page.sections.cycle.featured.eyebrow}
               </p>
-              <h3 className="mt-6 text-4xl sm:text-[2.8rem]">
+              <h3 className="mt-6 text-[2rem] sm:text-[2.8rem]">
                 {page.sections.cycle.featured.title}
               </h3>
               <p className="mt-5 text-sm leading-8 text-muted sm:text-base">

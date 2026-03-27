@@ -24,14 +24,14 @@ const toneClasses = {
 export default function GalleryStrip({ gallery }) {
   return (
     <SectionContainer className="pt-2 sm:pt-6">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
         <ContentBlock
           eyebrow={gallery.eyebrow}
           title={gallery.title}
           paragraphs={gallery.description}
           className="max-w-2xl"
         />
-        <div className="rounded-[1.6rem] border border-white/75 bg-white/66 px-5 py-5 shadow-[0_20px_44px_-36px_rgba(29,25,21,0.22)] sm:justify-self-end sm:px-6">
+        <div className="rounded-[1.5rem] border border-white/75 bg-white/66 px-5 py-5 shadow-[0_20px_44px_-36px_rgba(29,25,21,0.22)] sm:justify-self-end sm:rounded-[1.6rem] sm:px-6">
           <p className="max-w-lg text-sm leading-7 text-muted sm:text-base">
             {gallery.note}
           </p>
@@ -62,11 +62,11 @@ export default function GalleryStrip({ gallery }) {
               </span>
 
               <div>
-              <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
+                <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-secondary uppercase sm:text-sm sm:tracking-[0.22em]">
                 Temps fort
               </p>
-                <h3 className="mt-3 text-3xl leading-tight">{item.title}</h3>
-              <p className="mt-3 max-w-sm text-sm leading-7 text-muted">
+                <h3 className="mt-3 text-[1.75rem] leading-tight sm:text-3xl">{item.title}</h3>
+              <p className="mt-3 max-w-sm text-sm leading-6 text-muted sm:leading-7">
                 {item.description}
               </p>
               </div>

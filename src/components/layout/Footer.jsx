@@ -8,11 +8,11 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pb-6 pt-10 sm:pb-8 sm:pt-14">
+    <footer className="pb-6 pt-8 sm:pb-8 sm:pt-12 lg:pt-14">
       <div className="site-container">
         <div aria-hidden="true" className="fine-rule" />
 
-        <div className="grid gap-10 py-8 lg:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)] lg:gap-16 lg:py-10">
+        <div className="grid gap-8 py-7 lg:grid-cols-[minmax(0,1.2fr),minmax(0,1fr)] lg:gap-14 lg:py-10">
           <div className="space-y-4">
             <Link
               href="/"
@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-secondary">
                 {site.brandLabel}
               </span>
-              <span className="mt-1 block font-serif text-[1.9rem] leading-none tracking-[-0.04em]">
+              <span className="mt-1 block font-serif text-[1.65rem] leading-none tracking-[-0.04em] sm:text-[1.9rem]">
                 {site.name}
               </span>
             </Link>
@@ -32,13 +32,13 @@ export default function Footer() {
 
             <a
               href={site.contact.emailHref}
-              className="footer-link inline-flex items-center gap-2 text-sm font-semibold"
+              className="footer-link inline-flex items-center gap-2 break-all text-sm font-semibold sm:break-normal"
             >
               {site.contact.email}
             </a>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 sm:gap-8">
             {footerGroups.map((group) => (
               <nav key={group.title} aria-label={group.title}>
                 <p className="text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
@@ -59,11 +59,11 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-4 border-t border-border/80 pt-5 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>
+          <p className="max-w-xl">
             © {year} {site.legal.copyrightName}. Tous droits réservés.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-start gap-3 sm:items-center sm:justify-end sm:gap-4">
             {socials.map((item) =>
               isExternalHref(item.href) ? (
                 <a

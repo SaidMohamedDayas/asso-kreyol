@@ -25,7 +25,7 @@ export default function PartenairesPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
@@ -35,7 +35,9 @@ export default function PartenairesPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.intro.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.intro.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.intro.aside.description}
             </p>
@@ -49,16 +51,18 @@ export default function PartenairesPage() {
           title={page.sections.showcase.title}
           paragraphs={page.sections.showcase.description}
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {page.sections.showcase.items.map((item) => (
             <article
               key={item.title}
-              className="surface-card flex min-h-48 flex-col items-center justify-center px-6 py-7 text-center"
+              className="surface-card flex min-h-44 flex-col items-center justify-center px-6 py-6 text-center sm:min-h-48 sm:px-7 sm:py-8"
             >
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.86))] text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
                 {item.logoLabel}
               </div>
-              <h3 className="mt-5 text-3xl leading-tight">{item.title}</h3>
+              <h3 className="mt-5 text-[1.9rem] leading-tight sm:text-3xl">
+                {item.title}
+              </h3>
               <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
             </article>
           ))}
@@ -74,7 +78,7 @@ export default function PartenairesPage() {
         <InfoCardGrid
           items={page.sections.reasons.items}
           className="mt-10"
-          columns="md:grid-cols-3"
+          columns="md:grid-cols-2 xl:grid-cols-3"
         />
       </SectionContainer>
 
@@ -92,7 +96,7 @@ export default function PartenairesPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="surface-card grid gap-10 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+        <div className="surface-card grid gap-8 px-6 py-6 sm:gap-10 sm:px-8 sm:py-8 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.becomePartner.eyebrow}
             title={page.sections.becomePartner.title}
@@ -103,7 +107,7 @@ export default function PartenairesPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               TODO
             </p>
-            <h3 className="mt-4 text-4xl">Premiers éléments utiles</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">Premiers éléments utiles</h3>
             <ul className="mt-5 list-none space-y-3 p-0 text-sm leading-7 text-muted sm:text-base">
               {page.sections.becomePartner.points.map((point) => (
                 <li key={point} className="rounded-2xl bg-muted/55 px-4 py-3">

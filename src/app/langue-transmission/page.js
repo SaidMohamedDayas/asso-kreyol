@@ -25,7 +25,7 @@ export default function LangueTransmissionPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
@@ -36,7 +36,9 @@ export default function LangueTransmissionPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.intro.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.intro.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.intro.aside.description}
             </p>
@@ -53,7 +55,7 @@ export default function LangueTransmissionPage() {
         <InfoCardGrid
           items={page.sections.cards.items}
           className="mt-10"
-          columns="lg:grid-cols-3"
+          columns="md:grid-cols-2 xl:grid-cols-3"
         />
       </SectionContainer>
 

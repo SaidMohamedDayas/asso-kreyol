@@ -25,7 +25,7 @@ export default function AssociationPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.presentation.eyebrow}
             title={page.sections.presentation.title}
@@ -36,7 +36,9 @@ export default function AssociationPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.presentation.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.presentation.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.presentation.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.presentation.aside.description}
             </p>
@@ -45,7 +47,7 @@ export default function AssociationPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.mission.eyebrow}
             title={page.sections.mission.title}
@@ -53,7 +55,7 @@ export default function AssociationPage() {
           />
           <InfoCardGrid
             items={page.sections.mission.pillars}
-            columns="md:grid-cols-3"
+            columns="md:grid-cols-2 xl:grid-cols-3"
           />
         </div>
       </SectionContainer>
@@ -80,7 +82,7 @@ export default function AssociationPage() {
         <InfoCardGrid
           items={page.sections.team.items}
           className="mt-10"
-          columns="md:grid-cols-3"
+          columns="md:grid-cols-2 xl:grid-cols-3"
         />
       </SectionContainer>
 

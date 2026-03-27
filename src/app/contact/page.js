@@ -27,7 +27,7 @@ export default function ContactPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
@@ -38,7 +38,9 @@ export default function ContactPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.intro.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.intro.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.intro.aside.description}
             </p>
@@ -55,7 +57,7 @@ export default function ContactPage() {
         <InfoCardGrid
           items={page.sections.methods.items}
           className="mt-10"
-          columns="md:grid-cols-3"
+          columns="md:grid-cols-2 xl:grid-cols-3"
         />
       </SectionContainer>
 
@@ -68,20 +70,20 @@ export default function ContactPage() {
         <InfoCardGrid
           items={page.sections.social.items}
           className="mt-10"
-          columns="md:grid-cols-3"
+          columns="md:grid-cols-2 xl:grid-cols-3"
         />
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-start">
           <article className="surface-card px-6 py-6 sm:px-8 sm:py-8">
             <p className="eyebrow">{page.sections.form.eyebrow}</p>
-            <h2 className="mt-5 text-4xl">{page.sections.form.title}</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+            <h2 className="mt-5 text-[2rem] sm:text-4xl">{page.sections.form.title}</h2>
+            <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
               {page.sections.form.description}
             </p>
 
-            <form className="mt-8 space-y-5">
+            <form className="mt-6 space-y-5 sm:mt-8">
               {page.sections.form.fields.map((field) => (
                 <div key={field.id} className="space-y-2">
                   <label htmlFor={field.id} className="text-sm font-semibold text-foreground">
@@ -119,7 +121,7 @@ export default function ContactPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               TODO
             </p>
-            <h2 className="mt-4 text-4xl">Avant d’écrire</h2>
+            <h2 className="mt-4 text-[2rem] sm:text-4xl">Avant d’écrire</h2>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.form.note}
             </p>

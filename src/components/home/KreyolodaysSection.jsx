@@ -13,7 +13,7 @@ export default function KreyolodaysSection({ section }) {
   return (
     <SectionContainer className="pt-2 sm:pt-6">
       <div
-        className="surface-card relative isolate px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10"
+        className="surface-card relative isolate px-5 py-5 sm:px-8 sm:py-8 lg:px-10 lg:py-10"
         style={{
           background:
             "linear-gradient(180deg, rgba(238, 180, 39, 0.12), rgba(255, 255, 255, 0.92))",
@@ -28,20 +28,20 @@ export default function KreyolodaysSection({ section }) {
           className="pointer-events-none absolute bottom-0 left-10 h-40 w-40 rounded-full bg-green/10 blur-3xl"
         />
 
-        <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-stretch">
-          <article className="rounded-[2rem] border border-white/80 bg-[linear-gradient(155deg,rgba(255,255,255,0.72),rgba(255,255,255,0.56))] p-6 shadow-[0_26px_58px_-42px_rgba(29,25,21,0.28)] sm:p-8">
+        <div className="relative grid gap-6 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-stretch">
+          <article className="rounded-[1.8rem] border border-white/80 bg-[linear-gradient(155deg,rgba(255,255,255,0.72),rgba(255,255,255,0.56))] p-5 shadow-[0_26px_58px_-42px_rgba(29,25,21,0.28)] sm:rounded-[2rem] sm:p-8">
             <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
               Activité
             </p>
-            <h3 className="mt-6 max-w-lg text-4xl sm:text-[2.8rem]">
+            <h3 className="mt-5 max-w-lg text-[2rem] sm:mt-6 sm:text-[2.35rem] xl:text-[2.8rem]">
               {featuredItem.title}
             </h3>
-            <p className="mt-5 max-w-xl text-sm leading-8 text-muted sm:text-base">
+            <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:mt-5 sm:text-base sm:leading-8">
               {featuredItem.description}
             </p>
           </article>
 
-          <div className="flex h-full flex-col gap-6 rounded-[1.9rem] border border-white/75 bg-white/62 p-6 sm:p-8">
+          <div className="flex h-full flex-col gap-6 rounded-[1.7rem] border border-white/75 bg-white/62 p-5 sm:rounded-[1.9rem] sm:p-8">
             <ContentBlock
               eyebrow={section.eyebrow}
               title={section.title}
@@ -49,13 +49,13 @@ export default function KreyolodaysSection({ section }) {
               className="max-w-none"
             />
             <div className="fine-rule" />
-            <SecondaryButton href={section.cta.href} className="self-start">
+            <SecondaryButton href={section.cta.href} className="w-full self-start sm:w-auto">
               {section.cta.label}
             </SecondaryButton>
           </div>
         </div>
 
-        <div className="relative mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="relative mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5">
           {otherItems.map((item, index) => (
             <article
               key={item.title}
@@ -64,8 +64,8 @@ export default function KreyolodaysSection({ section }) {
               <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
                 Activité
               </p>
-              <h3 className="mt-4 text-3xl leading-tight">{item.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              <h3 className="mt-4 text-[1.8rem] leading-tight sm:text-3xl">{item.title}</h3>
+              <p className="mt-4 text-sm leading-6 text-muted sm:text-base sm:leading-7">
                 {item.description}
               </p>
             </article>

@@ -13,7 +13,7 @@ export default function ContentBlock({
   const items = Array.isArray(paragraphs) ? paragraphs : [paragraphs];
 
   return (
-    <div className={cn("max-w-3xl space-y-5", className)}>
+    <div className={cn("max-w-3xl space-y-4 sm:space-y-5", className)}>
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       {title ? (
         <SectionHeading as={titleAs} className={cn("max-w-none", titleClassName)}>
@@ -22,7 +22,7 @@ export default function ContentBlock({
       ) : null}
 
       {items.length ? (
-        <div className="space-y-4 text-base leading-8 text-muted sm:text-lg">
+        <div className="space-y-4 text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
           {items.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}

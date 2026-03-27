@@ -24,7 +24,7 @@ export default function VisualMosaic({ items, className }) {
   return (
     <div
       className={cn(
-        "grid auto-rows-[12rem] gap-4 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-[10rem]",
+        "grid auto-rows-[10rem] gap-3 sm:auto-rows-[12rem] sm:gap-4 md:grid-cols-2 xl:grid-cols-4 xl:auto-rows-[10rem]",
         className
       )}
     >
@@ -32,7 +32,7 @@ export default function VisualMosaic({ items, className }) {
         <article
           key={item.title}
           className={cn(
-            "surface-card group relative isolate flex h-full flex-col justify-between px-5 py-5 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_-42px_rgba(29,25,21,0.28)]",
+            "surface-card group relative isolate flex h-full flex-col justify-between px-4 py-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_-42px_rgba(29,25,21,0.28)] sm:px-5 sm:py-5",
             sizeClasses[item.size] || ""
           )}
         >
@@ -49,21 +49,23 @@ export default function VisualMosaic({ items, className }) {
           />
           <div
             aria-hidden="true"
-            className="absolute left-5 top-5 h-16 w-16 rounded-full border border-white/80 bg-white/42"
+            className="absolute left-4 top-4 h-14 w-14 rounded-full border border-white/80 bg-white/42 sm:left-5 sm:top-5 sm:h-16 sm:w-16"
           />
 
-          <div className="relative flex h-full flex-col justify-between gap-6">
-            <span className="inline-flex w-fit rounded-full border border-white/80 bg-white/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-secondary">
+          <div className="relative flex h-full flex-col justify-between gap-5 sm:gap-6">
+            <span className="inline-flex w-fit rounded-full border border-white/80 bg-white/70 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-secondary sm:px-3 sm:text-[0.68rem] sm:tracking-[0.2em]">
               {item.tag || "TODO"}
             </span>
 
             <div>
-              <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
+              <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-secondary uppercase sm:text-sm sm:tracking-[0.22em]">
                 {item.eyebrow || "Temps fort"}
               </p>
-              <h3 className="mt-3 text-3xl leading-tight">{item.title}</h3>
+              <h3 className="mt-3 text-[1.75rem] leading-tight sm:text-3xl">
+                {item.title}
+              </h3>
               {item.description ? (
-                <p className="mt-3 max-w-sm text-sm leading-7 text-muted">
+                <p className="mt-3 max-w-sm text-sm leading-6 text-muted sm:leading-7">
                   {item.description}
                 </p>
               ) : null}

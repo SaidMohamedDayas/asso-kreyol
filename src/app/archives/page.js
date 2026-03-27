@@ -26,7 +26,7 @@ export default function ArchivesPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-start">
           <ContentBlock
             eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
@@ -36,7 +36,9 @@ export default function ArchivesPage() {
             <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
               {page.sections.intro.aside.eyebrow}
             </p>
-            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+              {page.sections.intro.aside.title}
+            </h3>
             <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
               {page.sections.intro.aside.description}
             </p>
@@ -50,7 +52,7 @@ export default function ArchivesPage() {
           title={page.sections.filters.title}
           paragraphs={page.sections.filters.description}
         />
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-2.5 sm:gap-3">
           {page.sections.filters.items.map((item) => (
             <span key={item} className="tag-pill">
               {item}

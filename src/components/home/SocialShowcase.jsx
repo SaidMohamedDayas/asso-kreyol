@@ -26,7 +26,7 @@ function SocialCard({ item }) {
     tone: "bg-white/72",
   };
   const classes =
-    `surface-card flex h-full flex-col gap-5 px-6 py-6 sm:px-7 sm:py-7 ${meta.tone}`;
+    `surface-card flex h-full flex-col gap-4 px-5 py-5 sm:gap-5 sm:px-7 sm:py-7 ${meta.tone}`;
 
   const content = (
     <>
@@ -34,12 +34,12 @@ function SocialCard({ item }) {
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/78 text-sm font-semibold tracking-[0.18em] text-secondary shadow-[0_14px_30px_-24px_rgba(29,25,21,0.18)]">
           {meta.badge}
         </span>
-        <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
+        <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-secondary uppercase sm:text-sm sm:tracking-[0.22em]">
           {item.platform}
         </p>
       </div>
-      <h3 className="text-3xl leading-tight">{item.platform}</h3>
-      <p className="text-sm leading-7 text-muted sm:text-base">{item.description}</p>
+      <h3 className="text-[1.85rem] leading-tight sm:text-3xl">{item.platform}</h3>
+      <p className="text-sm leading-6 text-muted sm:text-base sm:leading-7">{item.description}</p>
       <p className="mt-auto text-sm font-semibold text-foreground">
         {isExternalHref(item.href) ? "Ouvrir le lien" : "Lien TODO"}
       </p>
@@ -65,7 +65,7 @@ function SocialCard({ item }) {
 export default function SocialShowcase({ social }) {
   return (
     <SectionContainer className="pt-2 sm:pt-6">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
         <ContentBlock
           eyebrow={social.eyebrow}
           title={social.title}
@@ -73,7 +73,7 @@ export default function SocialShowcase({ social }) {
           className="max-w-2xl"
         />
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {social.items.map((item) => (
             <SocialCard key={item.platform} item={item} />
           ))}

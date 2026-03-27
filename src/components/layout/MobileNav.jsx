@@ -39,9 +39,9 @@ export default function MobileNav() {
         onClick={() =>
           setOpenPath((value) => (value === currentPathname ? null : currentPathname))
         }
-        className="inline-flex min-h-11 items-center gap-3 rounded-full border border-border/90 bg-white/75 px-4 py-2 text-sm font-semibold text-foreground shadow-[0_18px_44px_-34px_rgba(29,25,21,0.32)] backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green"
+        className="inline-flex min-h-10 items-center gap-2.5 rounded-full border border-border/90 bg-white/78 px-3.5 py-2 text-sm font-semibold text-foreground shadow-[0_18px_44px_-34px_rgba(29,25,21,0.32)] backdrop-blur focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green sm:min-h-11 sm:gap-3 sm:px-4"
       >
-        <span className="text-[0.72rem] uppercase tracking-[0.26em] text-secondary">
+        <span className="text-[0.66rem] uppercase tracking-[0.22em] text-secondary sm:text-[0.72rem] sm:tracking-[0.26em]">
           Menu
         </span>
         <span aria-hidden="true" className="flex w-4 flex-col gap-1">
@@ -69,15 +69,15 @@ export default function MobileNav() {
             type="button"
             aria-label="Fermer le menu"
             onClick={() => setOpenPath(null)}
-            className="fixed inset-0 z-0 bg-foreground/5"
+            className="fixed inset-0 z-0 bg-foreground/8 backdrop-blur-[1px]"
           />
 
           <div
             id="mobile-navigation-panel"
-            className="surface-card absolute right-0 top-full z-10 mt-3 w-[min(26rem,calc(100vw-2rem))] p-4"
+            className="surface-card absolute right-0 top-full z-10 mt-2 w-[min(24rem,calc(100vw-1rem))] max-h-[calc(100vh-5.75rem)] overflow-y-auto p-3 sm:mt-3 sm:w-[min(24rem,calc(100vw-2rem))] sm:p-4"
           >
             <nav aria-label="Navigation mobile">
-              <ul className="space-y-2">
+              <ul className="space-y-1.5 sm:space-y-2">
                 {primaryNavigation.map((item) => (
                   <li key={item.href}>
                     <NavLink
@@ -92,7 +92,7 @@ export default function MobileNav() {
               </ul>
             </nav>
 
-            <p className="mt-4 px-2 text-sm leading-6 text-muted">
+            <p className="mt-4 px-2 text-[0.95rem] leading-6 text-muted">
               {mobileNavigationNote}
             </p>
           </div>

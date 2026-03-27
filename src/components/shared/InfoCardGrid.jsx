@@ -21,18 +21,18 @@ function CardBody({ item, index }) {
   return (
     <>
       <div className="flex items-start justify-between gap-4">
-        <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+        <p className="text-[0.72rem] font-semibold tracking-[0.22em] text-secondary uppercase sm:text-sm sm:tracking-[0.24em]">
           {label}
         </p>
         {item.meta ? (
-          <span className="rounded-full border border-white/80 bg-white/76 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-secondary">
+          <span className="rounded-full border border-white/80 bg-white/76 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-secondary sm:px-3 sm:text-[0.68rem] sm:tracking-[0.18em]">
             {item.meta}
           </span>
         ) : null}
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-3xl leading-tight">{item.title}</h3>
+        <h3 className="text-[1.85rem] leading-tight sm:text-3xl">{item.title}</h3>
         {item.description ? (
           <p className="text-sm leading-7 text-muted sm:text-base">{item.description}</p>
         ) : null}
@@ -61,7 +61,7 @@ export default function InfoCardGrid({
       {items.map((item, index) => {
         const hasLink = item.href && item.href !== "TODO";
         const classes = cn(
-          "surface-card group relative isolate flex min-h-[16rem] h-full flex-col gap-5 px-6 py-6 sm:px-7 sm:py-7",
+          "surface-card group relative isolate flex min-h-[14.5rem] h-full flex-col gap-4 px-5 py-5 sm:min-h-[16rem] sm:gap-5 sm:px-7 sm:py-7",
           toneClasses[item.tone] || "",
           hasLink
             ? "transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.28)]"
@@ -73,7 +73,7 @@ export default function InfoCardGrid({
           <>
             <div
               aria-hidden="true"
-              className="absolute right-5 top-5 h-16 w-16 rounded-full border border-white/80 bg-white/42"
+              className="absolute right-4 top-4 h-14 w-14 rounded-full border border-white/80 bg-white/42 sm:right-5 sm:top-5 sm:h-16 sm:w-16"
             />
             <div className="relative flex h-full flex-col gap-5">
               <CardBody item={item} index={index} />
