@@ -1,13 +1,8 @@
 import Link from "next/link";
 import { footerGroups } from "@/data/navigation";
+import socials from "@/data/socials";
 import site from "@/data/site";
 import { isExternalHref } from "@/lib/utils";
-
-const socialEntries = Object.entries(site.socialLinks || {});
-
-function formatNetworkLabel(network) {
-  return network.charAt(0).toUpperCase() + network.slice(1);
-}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -24,7 +19,7 @@ export default function Footer() {
               className="inline-block rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green"
             >
               <span className="block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-secondary">
-                Institution
+                {site.brandLabel}
               </span>
               <span className="mt-1 block font-serif text-[1.9rem] leading-none tracking-[-0.04em]">
                 {site.name}
@@ -32,15 +27,14 @@ export default function Footer() {
             </Link>
 
             <p className="max-w-lg text-sm leading-7 text-muted">
-              TODO - Une courte présentation institutionnelle de l’association
-              viendra préciser sa mission, sa présence et ses actions.
+              {site.footerDescription}
             </p>
 
             <a
-              href={`mailto:${site.email}`}
+              href={site.contact.emailHref}
               className="footer-link inline-flex items-center gap-2 text-sm font-semibold"
             >
-              {site.email}
+              {site.contact.email}
             </a>
           </div>
 
@@ -66,24 +60,24 @@ export default function Footer() {
 
         <div className="flex flex-col gap-4 border-t border-border/80 pt-5 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {site.name}. Tous droits réservés.
+            © {year} {site.legal.copyrightName}. Tous droits réservés.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            {socialEntries.map(([network, value]) =>
-              isExternalHref(value) ? (
+            {socials.map((item) =>
+              isExternalHref(item.href) ? (
                 <a
-                  key={network}
-                  href={value}
+                  key={item.key}
+                  href={item.href}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link"
                 >
-                  {formatNetworkLabel(network)}
+                  {item.label}
                 </a>
               ) : (
-                <span key={network} className="text-sm text-muted">
-                  {formatNetworkLabel(network)} · {value}
+                <span key={item.key} className="text-sm text-muted">
+                  {item.label} · {item.handle}
                 </span>
               )
             )}

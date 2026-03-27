@@ -10,6 +10,9 @@ const primaryNavigation = [
   { label: "Contact", href: "/contact" },
 ];
 
+const mobileNavigationNote =
+  "TODO - Le contenu détaillé de chaque rubrique sera ajouté dans les prochaines étapes.";
+
 function getNavigationItem(href) {
   return primaryNavigation.find((item) => item.href === href);
 }
@@ -43,4 +46,10 @@ const footerGroups = [
   },
 ];
 
-export { contactLink, footerGroups, getNavigationItem, primaryNavigation };
+export {
+  contactLink,
+  footerGroups,
+  getNavigationItem,
+  mobileNavigationNote,
+  primaryNavigation,
+};

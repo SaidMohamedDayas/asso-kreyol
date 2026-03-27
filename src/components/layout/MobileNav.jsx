@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { primaryNavigation } from "@/data/navigation";
+import { mobileNavigationNote, primaryNavigation } from "@/data/navigation";
 import NavLink from "@/components/layout/NavLink";
 
 export default function MobileNav() {
@@ -18,7 +18,7 @@ export default function MobileNav() {
 
     function handleKeyDown(event) {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        setOpenPath(null);
       }
     }
 
@@ -93,8 +93,7 @@ export default function MobileNav() {
             </nav>
 
             <p className="mt-4 px-2 text-sm leading-6 text-muted">
-              TODO - Le contenu détaillé de chaque rubrique sera ajouté dans les
-              prochaines étapes.
+              {mobileNavigationNote}
             </p>
           </div>
         </>

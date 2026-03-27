@@ -32,7 +32,7 @@ export default function PartnerShowcase({ partners }) {
               className="group flex min-h-44 flex-col items-center justify-center rounded-[1.6rem] border border-white/80 bg-white/74 px-5 py-6 text-center shadow-[0_22px_44px_-38px_rgba(29,25,21,0.22)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_54px_-40px_rgba(29,25,21,0.26)]"
             >
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.86))] text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
-                TODO
+                {item.logoLabel || "TODO"}
               </div>
               <h3 className="mt-5 text-2xl leading-tight">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>

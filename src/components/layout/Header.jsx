@@ -19,7 +19,7 @@ export default function Header() {
             className="min-w-0 rounded-2xl px-1 py-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-green"
           >
             <span className="block text-[0.7rem] font-bold uppercase tracking-[0.28em] text-secondary">
-              Association culturelle
+              {site.brandLabel}
             </span>
             <span className="mt-1 block truncate font-serif text-[1.8rem] leading-none tracking-[-0.04em] text-foreground">
               {site.name}

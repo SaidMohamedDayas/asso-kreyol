@@ -1,3 +1,5 @@
+import { partnerShowcaseItems } from "@/data/partners";
+import socials from "@/data/socials";
 import site from "@/data/site";
 
 const homeData = {
@@ -226,32 +228,7 @@ const homeData = {
     title: "Des appuis et relais à rendre visibles avec clarté lorsqu’ils seront confirmés.",
     description:
       "TODO - Cette section présentera plus tard les structures, collectifs ou partenaires associés au projet.",
-    items: [
-      {
-        title: "Structure culturelle",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-      {
-        title: "Institution",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-      {
-        title: "Réseau local",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-      {
-        title: "Collectif",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-      {
-        title: "Lieu partenaire",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-      {
-        title: "Soutien à venir",
-        description: "TODO - Nom ou logo à confirmer.",
-      },
-    ],
+    items: partnerShowcaseItems,
     cta: {
       label: "Voir les partenaires",
       href: "/partenaires",
@@ -262,26 +239,11 @@ const homeData = {
     title: "Retrouver bientôt les prises de parole, annonces et extraits de vie du projet.",
     description:
       "TODO - Cette section orientera plus tard vers des publications, des annonces et des traces des temps forts partagés en ligne.",
-    items: [
-      {
-        platform: "Instagram",
-        href: site.socialLinks.instagram,
-        description:
-          "TODO - Aperçus visuels, extraits de programmation et fragments d'ambiance.",
-      },
-      {
-        platform: "Facebook",
-        href: site.socialLinks.facebook,
-        description:
-          "TODO - Annonces, relais d'événements et informations publiques à venir.",
-      },
-      {
-        platform: "YouTube",
-        href: site.socialLinks.youtube,
-        description:
-          "TODO - Captations, formats vidéo et ressources de transmission à enrichir.",
-      },
-    ],
+    items: socials.map((item) => ({
+      platform: item.label,
+      href: item.href,
+      description: item.description,
+    })),
   },
   contact: {
     eyebrow: "Contact rapide",
@@ -294,9 +256,9 @@ const homeData = {
     },
     secondaryCta: {
       label: "Écrire par email",
-      href: `mailto:${site.email}`,
+      href: site.contact.emailHref,
     },
-    note: "WhatsApp · TODO",
+    note: `WhatsApp · ${site.contact.whatsapp}`,
   },
 };
 

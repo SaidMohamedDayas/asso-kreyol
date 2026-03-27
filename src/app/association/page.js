@@ -25,20 +25,26 @@ export default function AssociationPage() {
 
       <SectionContainer className="pt-0">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-          <ContentBlock title="Présentation" paragraphs={page.presentation} />
-          <ContentBlock title="Mission" paragraphs={page.mission} />
+          <ContentBlock
+            title={page.sections.presentation.title}
+            paragraphs={page.sections.presentation.paragraphs}
+          />
+          <ContentBlock
+            title={page.sections.mission.title}
+            paragraphs={page.sections.mission.paragraphs}
+          />
         </div>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
         <ContentBlock
-          eyebrow="Repères essentiels"
-          title="Quelques valeurs qui orienteront la lecture du site."
-          paragraphs="TODO - Cette section précisera plus tard la manière dont l'association traduit ses intentions dans ses actions et sa présence publique."
+          eyebrow={page.sections.values.eyebrow}
+          title={page.sections.values.title}
+          paragraphs={page.sections.values.description}
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {page.values.map((value, index) => (
+          {page.sections.values.items.map((value, index) => (
             <article
               key={value.title}
               className="surface-card flex h-full flex-col gap-4 px-6 py-6 sm:px-7 sm:py-7"
@@ -58,8 +64,8 @@ export default function AssociationPage() {
       <SectionContainer className="pt-0">
         <aside className="surface-card grid gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="space-y-3">
-            <p className="eyebrow">À suivre</p>
-            <h2 className="text-4xl">Poursuivre l&apos;échange.</h2>
+            <p className="eyebrow">{page.cta.eyebrow}</p>
+            <h2 className="text-4xl">{page.cta.title}</h2>
             <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
               {page.cta.description}
             </p>

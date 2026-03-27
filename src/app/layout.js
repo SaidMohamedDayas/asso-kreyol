@@ -20,8 +20,7 @@ export const metadata = {
     default: site.name,
     template: `%s | ${site.name}`,
   },
-  description:
-    "Base editoriale du site vitrine culturel de l'Association Kréyol. Contenu détaillé à venir.",
+  description: site.description,
   applicationName: site.name,
 };
 

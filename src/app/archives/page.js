@@ -25,20 +25,20 @@ export default function ArchivesPage() {
 
       <SectionContainer className="pt-0">
         <ContentBlock
-          title="Une architecture prête à accueillir des ressources plus nombreuses."
-          paragraphs={page.intro}
+          title={page.sections.intro.title}
+          paragraphs={page.sections.intro.paragraphs}
         />
       </SectionContainer>
 
       <SectionContainer className="pt-0">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {page.cards.map((card) => (
+          {page.sections.cards.items.map((card) => (
             <article
               key={card.title}
               className="surface-card flex h-full flex-col gap-4 px-6 py-6 sm:px-7 sm:py-7"
             >
               <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                Archive
+                {card.category || "Archive"}
               </p>
               <h2 className="text-3xl leading-tight">{card.title}</h2>
               <p className="text-sm leading-7 text-muted sm:text-base">
@@ -52,8 +52,8 @@ export default function ArchivesPage() {
       <SectionContainer className="pt-0">
         <aside className="surface-card grid gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="space-y-3">
-            <p className="eyebrow">Contribution</p>
-            <h2 className="text-4xl">Contribuer ou signaler une ressource.</h2>
+            <p className="eyebrow">{page.cta.eyebrow}</p>
+            <h2 className="text-4xl">{page.cta.title}</h2>
             <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
               {page.cta.description}
             </p>

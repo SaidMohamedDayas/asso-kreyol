@@ -25,23 +25,25 @@ export default function ArtsFolklorePage() {
 
       <SectionContainer className="pt-0">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-          <ContentBlock title="Un espace pour les pratiques et les formes sensibles." paragraphs={page.intro} />
+          <ContentBlock
+            title={page.sections.intro.title}
+            paragraphs={page.sections.intro.paragraphs}
+          />
           <aside className="surface-card px-6 py-6 text-sm leading-7 text-muted sm:px-7">
-            TODO - Un encadré pourra ici rappeler un fil rouge éditorial, une
-            prochaine action ou une mise en avant artistique.
+            {page.sections.asideNote}
           </aside>
         </div>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {page.cards.map((card) => (
+          {page.sections.cards.items.map((card) => (
             <article
               key={card.title}
               className="surface-card flex h-full flex-col gap-4 px-6 py-6 sm:px-7 sm:py-7"
             >
               <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                Activité
+                {page.sections.cards.label}
               </p>
               <h2 className="text-3xl leading-tight">{card.title}</h2>
               <p className="text-sm leading-7 text-muted sm:text-base">
@@ -55,8 +57,8 @@ export default function ArtsFolklorePage() {
       <SectionContainer className="pt-0">
         <aside className="surface-card grid gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
           <div className="space-y-3">
-            <p className="eyebrow">Ouverture</p>
-            <h2 className="text-4xl">Imaginer la suite.</h2>
+            <p className="eyebrow">{page.cta.eyebrow}</p>
+            <h2 className="text-4xl">{page.cta.title}</h2>
             <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
               {page.cta.description}
             </p>
