@@ -58,17 +58,19 @@ export default function GalleryStrip({ gallery }) {
             />
             <div className="relative flex h-full flex-col justify-between gap-6">
               <span className="inline-flex w-fit rounded-full border border-white/80 bg-white/70 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-secondary">
-                TODO
+                {item.tag || "TODO"}
               </span>
 
               <div>
                 <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-secondary uppercase sm:text-sm sm:tracking-[0.22em]">
-                Temps fort
-              </p>
-                <h3 className="mt-3 text-[1.75rem] leading-tight sm:text-3xl">{item.title}</h3>
-              <p className="mt-3 max-w-sm text-sm leading-6 text-muted sm:leading-7">
-                {item.description}
-              </p>
+                  {item.eyebrow || "Temps fort"}
+                </p>
+                <h3 className="mt-3 text-[1.75rem] leading-tight sm:text-3xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-sm leading-6 text-muted sm:leading-7">
+                  {item.description}
+                </p>
               </div>
             </div>
           </article>

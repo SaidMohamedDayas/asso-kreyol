@@ -24,7 +24,7 @@ export default function AxisCards({ axes }) {
           <Link
             key={item.href}
             href={item.href}
-            className={`surface-card group relative isolate flex min-h-[16.5rem] h-full flex-col gap-6 px-5 py-5 transition duration-300 hover:-translate-y-[3px] hover:shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:min-h-[19rem] sm:gap-8 sm:px-7 sm:py-7 ${toneClasses[index] || toneClasses[0]}`}
+            className={`surface-card interactive-card group relative isolate flex min-h-[16.5rem] h-full flex-col gap-6 px-5 py-5 transition duration-300 hover:-translate-y-[3px] hover:shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:min-h-[19rem] sm:gap-8 sm:px-7 sm:py-7 ${toneClasses[index] || toneClasses[0]}`}
           >
             <div
               aria-hidden="true"

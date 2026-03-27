@@ -64,7 +64,7 @@ export default function InfoCardGrid({
           "surface-card group relative isolate flex min-h-[14.5rem] h-full flex-col gap-4 px-5 py-5 sm:min-h-[16rem] sm:gap-5 sm:px-7 sm:py-7",
           toneClasses[item.tone] || "",
           hasLink
-            ? "transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.28)]"
+            ? "interactive-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.28)]"
             : "",
           cardClassName
         );

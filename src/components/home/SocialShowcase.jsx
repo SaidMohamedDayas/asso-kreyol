@@ -52,7 +52,7 @@ function SocialCard({ item }) {
         href={item.href}
         target="_blank"
         rel="noreferrer"
-        className={`${classes} transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.26)]`}
+        className={`${classes} interactive-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.26)]`}
       >
         {content}
       </a>

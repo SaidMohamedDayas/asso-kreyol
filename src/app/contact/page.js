@@ -9,6 +9,18 @@ import PageCta from "@/components/shared/PageCta";
 import { getPublicPage } from "@/data/pages";
 
 const page = getPublicPage("contact");
+const formDescriptionId = "contact-form-description";
+
+function getAutoComplete(fieldId) {
+  switch (fieldId) {
+    case "contact-name":
+      return "name";
+    case "contact-email":
+      return "email";
+    default:
+      return undefined;
+  }
+}
 
 export const metadata = {
   title: page.title,
@@ -79,11 +91,18 @@ export default function ContactPage() {
           <article className="surface-card px-6 py-6 sm:px-8 sm:py-8">
             <p className="eyebrow">{page.sections.form.eyebrow}</p>
             <h2 className="mt-5 text-[2rem] sm:text-4xl">{page.sections.form.title}</h2>
-            <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
+            <p
+              id={formDescriptionId}
+              className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8"
+            >
               {page.sections.form.description}
             </p>
 
-            <form className="mt-6 space-y-5 sm:mt-8">
+            <form
+              noValidate
+              aria-describedby={formDescriptionId}
+              className="mt-6 space-y-5 sm:mt-8"
+            >
               {page.sections.form.fields.map((field) => (
                 <div key={field.id} className="space-y-2">
                   <label htmlFor={field.id} className="text-sm font-semibold text-foreground">
@@ -94,6 +113,7 @@ export default function ContactPage() {
                       id={field.id}
                       name={field.id}
                       placeholder={field.placeholder}
+                      autoComplete={getAutoComplete(field.id)}
                       className="field-textarea"
                     />
                   ) : (
@@ -102,6 +122,7 @@ export default function ContactPage() {
                       name={field.id}
                       type={field.type}
                       placeholder={field.placeholder}
+                      autoComplete={getAutoComplete(field.id)}
                       className="field-input"
                     />
                   )}
@@ -109,7 +130,9 @@ export default function ContactPage() {
               ))}
 
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <PrimaryButton>TODO - Formulaire non connecté</PrimaryButton>
+                <PrimaryButton disabled aria-disabled="true">
+                  TODO - Formulaire non connecté
+                </PrimaryButton>
                 <SecondaryButton href={page.cta.primaryAction.href}>
                   {page.cta.primaryAction.label}
                 </SecondaryButton>

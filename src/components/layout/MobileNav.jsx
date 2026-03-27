@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { mobileNavigationNote, primaryNavigation } from "@/data/navigation";
 import NavLink from "@/components/layout/NavLink";
@@ -10,6 +10,9 @@ export default function MobileNav() {
   const pathname = usePathname();
   const currentPathname = pathname || "/";
   const isOpen = openPath === currentPathname;
+  const triggerRef = useRef(null);
+  const panelRef = useRef(null);
+  const wasOpenRef = useRef(false);
 
   useEffect(() => {
     if (!isOpen) {
@@ -29,13 +32,42 @@ export default function MobileNav() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      if (wasOpenRef.current) {
+        triggerRef.current?.focus();
+      }
+      wasOpenRef.current = false;
+      return undefined;
+    }
+
+    wasOpenRef.current = true;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      panelRef.current?.querySelector("a[href]")?.focus();
+    });
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
+    };
+  }, [isOpen]);
+
   return (
     <div className="relative z-40 lg:hidden">
       <button
+        ref={triggerRef}
         type="button"
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-panel"
-        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-label={isOpen ? "Fermer le menu principal" : "Ouvrir le menu principal"}
         onClick={() =>
           setOpenPath((value) => (value === currentPathname ? null : currentPathname))
         }
@@ -74,6 +106,7 @@ export default function MobileNav() {
 
           <div
             id="mobile-navigation-panel"
+            ref={panelRef}
             className="surface-card absolute right-0 top-full z-10 mt-2 w-[min(24rem,calc(100vw-1rem))] max-h-[calc(100vh-5.75rem)] overflow-y-auto p-3 sm:mt-3 sm:w-[min(24rem,calc(100vw-2rem))] sm:p-4"
           >
             <nav aria-label="Navigation mobile">

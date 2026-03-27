@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       <body className="flex min-h-screen flex-col font-sans text-foreground antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:left-4 focus-visible:top-4 focus-visible:z-50 focus-visible:rounded-full focus-visible:bg-foreground focus-visible:px-4 focus-visible:py-2 focus-visible:text-background focus-visible:shadow-[0_18px_42px_-24px_rgba(29,25,21,0.38)] focus-visible:outline-none"
         >
           Aller au contenu
         </a>
