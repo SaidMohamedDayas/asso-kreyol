@@ -220,6 +220,54 @@ main {
   );
 }
 
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  border: 1px solid rgba(230, 222, 212, 0.96);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  padding: 0.55rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.field-input,
+.field-textarea {
+  width: 100%;
+  border: 1px solid rgba(230, 222, 212, 0.96);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.95rem 1rem;
+  color: var(--foreground);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.field-textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: rgba(125, 81, 42, 0.3);
+  background: rgba(255, 255, 255, 0.88);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(49, 97, 42, 0.08);
+}
+
 .nav-link {
   display: inline-flex;
   align-items: center;

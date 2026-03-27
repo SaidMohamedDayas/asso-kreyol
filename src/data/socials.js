@@ -4,6 +4,7 @@ const socials = [
     label: "Instagram",
     href: "TODO",
     handle: "@TODO",
+    tone: "primary",
     description:
       "TODO - Aperçus visuels, extraits de programmation et fragments d'ambiance.",
   },
@@ -12,6 +13,7 @@ const socials = [
     label: "Facebook",
     href: "TODO",
     handle: "@TODO",
+    tone: "secondary",
     description:
       "TODO - Annonces, relais d'événements et informations publiques à venir.",
   },
@@ -20,6 +22,7 @@ const socials = [
     label: "YouTube",
     href: "TODO",
     handle: "@TODO",
+    tone: "accent",
     description:
       "TODO - Captations, formats vidéo et ressources de transmission à enrichir.",
   },

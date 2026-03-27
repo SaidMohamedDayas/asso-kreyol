@@ -1,8 +1,10 @@
 import ContentBlock from "@/components/common/ContentBlock";
 import PageHero from "@/components/common/PageHero";
-import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
 import SiteFrame from "@/components/layout/SiteFrame";
+import InfoCardGrid from "@/components/shared/InfoCardGrid";
+import PageCta from "@/components/shared/PageCta";
+import VisualMosaic from "@/components/shared/VisualMosaic";
 import { getPublicPage } from "@/data/pages";
 
 const page = getPublicPage("archives");
@@ -24,42 +26,62 @@ export default function ArchivesPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <ContentBlock
-          title={page.sections.intro.title}
-          paragraphs={page.sections.intro.paragraphs}
-        />
-      </SectionContainer>
-
-      <SectionContainer className="pt-0">
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {page.sections.cards.items.map((card) => (
-            <article
-              key={card.title}
-              className="surface-card flex h-full flex-col gap-4 px-6 py-6 sm:px-7 sm:py-7"
-            >
-              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                {card.category || "Archive"}
-              </p>
-              <h2 className="text-3xl leading-tight">{card.title}</h2>
-              <p className="text-sm leading-7 text-muted sm:text-base">
-                {card.description}
-              </p>
-            </article>
-          ))}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
+          <ContentBlock
+            eyebrow={page.sections.intro.eyebrow}
+            title={page.sections.intro.title}
+            paragraphs={page.sections.intro.paragraphs}
+          />
+          <article className="surface-card bg-[linear-gradient(180deg,rgba(125,81,42,0.08),rgba(255,255,255,0.82))] px-6 py-6 sm:px-7 sm:py-7">
+            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+              {page.sections.intro.aside.eyebrow}
+            </p>
+            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              {page.sections.intro.aside.description}
+            </p>
+          </article>
         </div>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <aside className="surface-card grid gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <div className="space-y-3">
-            <p className="eyebrow">{page.cta.eyebrow}</p>
-            <h2 className="text-4xl">{page.cta.title}</h2>
-            <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              {page.cta.description}
-            </p>
-          </div>
-          <SecondaryButton href={page.cta.href}>{page.cta.label}</SecondaryButton>
-        </aside>
+        <ContentBlock
+          eyebrow={page.sections.filters.eyebrow}
+          title={page.sections.filters.title}
+          paragraphs={page.sections.filters.description}
+        />
+        <div className="mt-8 flex flex-wrap gap-3">
+          {page.sections.filters.items.map((item) => (
+            <span key={item} className="tag-pill">
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <ContentBlock
+          eyebrow={page.sections.cards.eyebrow}
+          title={page.sections.cards.title}
+          paragraphs={page.sections.cards.description}
+          className="mt-10"
+        />
+        <InfoCardGrid
+          items={page.sections.cards.items}
+          className="mt-10"
+          columns="md:grid-cols-2 xl:grid-cols-4"
+        />
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <ContentBlock
+          eyebrow={page.sections.paths.eyebrow}
+          title={page.sections.paths.title}
+          paragraphs={page.sections.paths.description}
+        />
+        <VisualMosaic items={page.sections.paths.items} className="mt-10" />
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <PageCta {...page.cta} />
       </SectionContainer>
     </SiteFrame>
   );

@@ -4,10 +4,9 @@ import PrimaryButton from "@/components/common/PrimaryButton";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
 import SiteFrame from "@/components/layout/SiteFrame";
+import InfoCardGrid from "@/components/shared/InfoCardGrid";
+import PageCta from "@/components/shared/PageCta";
 import { getPublicPage } from "@/data/pages";
-import socials from "@/data/socials";
-import site from "@/data/site";
-import { isExternalHref } from "@/lib/utils";
 
 const page = getPublicPage("contact");
 
@@ -28,76 +27,116 @@ export default function ContactPage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
           <ContentBlock
+            eyebrow={page.sections.intro.eyebrow}
             title={page.sections.intro.title}
             paragraphs={page.sections.intro.paragraphs}
-          >
-            <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap">
-              <PrimaryButton href={page.actions.primary.href}>
-                {page.actions.primary.label}
-              </PrimaryButton>
-              <SecondaryButton href={page.actions.secondary.href}>
-                {page.actions.secondary.label}
-              </SecondaryButton>
-            </div>
-          </ContentBlock>
+          />
 
-          <div className="space-y-4">
-            <article className="surface-card px-6 py-6 sm:px-7 sm:py-7">
-              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                {page.sections.directCard.eyebrow}
-              </p>
-              <h2 className="mt-4 text-3xl">{page.sections.directCard.title}</h2>
-              <a
-                href={site.contact.emailHref}
-                className="mt-5 inline-flex text-base font-semibold text-foreground underline decoration-border underline-offset-6"
-              >
-                {site.contact.email}
-              </a>
-              <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-                {page.sections.directCard.description}
-              </p>
-            </article>
-
-            <article className="surface-card px-6 py-6 sm:px-7 sm:py-7">
-              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                {page.sections.socialCard.eyebrow}
-              </p>
-              <h2 className="mt-4 text-3xl">{page.sections.socialCard.title}</h2>
-              <div className="mt-5 space-y-3">
-                {socials.map((item) =>
-                  isExternalHref(item.href) ? (
-                    <a
-                      key={item.key}
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center justify-between rounded-2xl border border-border/90 bg-white/55 px-4 py-3 text-sm font-medium"
-                    >
-                      <span>{item.label}</span>
-                      <span className="text-muted">ouvrir</span>
-                    </a>
-                  ) : (
-                    <div
-                      key={item.key}
-                      className="flex items-center justify-between rounded-2xl border border-border/90 bg-white/55 px-4 py-3 text-sm font-medium"
-                    >
-                      <span>{item.label}</span>
-                      <span className="text-muted">{item.handle}</span>
-                    </div>
-                  )
-                )}
-              </div>
-            </article>
-          </div>
+          <article className="surface-card bg-[linear-gradient(180deg,rgba(49,97,42,0.08),rgba(255,255,255,0.82))] px-6 py-6 sm:px-7 sm:py-7">
+            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+              {page.sections.intro.aside.eyebrow}
+            </p>
+            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              {page.sections.intro.aside.description}
+            </p>
+          </article>
         </div>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <aside className="surface-card px-6 py-6 text-sm leading-7 text-muted sm:px-8 sm:py-7">
-          {page.sections.followUpNote}
-        </aside>
+        <ContentBlock
+          eyebrow={page.sections.methods.eyebrow}
+          title={page.sections.methods.title}
+          paragraphs={page.sections.methods.description}
+        />
+        <InfoCardGrid
+          items={page.sections.methods.items}
+          className="mt-10"
+          columns="md:grid-cols-3"
+        />
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <ContentBlock
+          eyebrow={page.sections.social.eyebrow}
+          title={page.sections.social.title}
+          paragraphs={page.sections.social.description}
+        />
+        <InfoCardGrid
+          items={page.sections.social.items}
+          className="mt-10"
+          columns="md:grid-cols-3"
+        />
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+          <article className="surface-card px-6 py-6 sm:px-8 sm:py-8">
+            <p className="eyebrow">{page.sections.form.eyebrow}</p>
+            <h2 className="mt-5 text-4xl">{page.sections.form.title}</h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+              {page.sections.form.description}
+            </p>
+
+            <form className="mt-8 space-y-5">
+              {page.sections.form.fields.map((field) => (
+                <div key={field.id} className="space-y-2">
+                  <label htmlFor={field.id} className="text-sm font-semibold text-foreground">
+                    {field.label}
+                  </label>
+                  {field.type === "textarea" ? (
+                    <textarea
+                      id={field.id}
+                      name={field.id}
+                      placeholder={field.placeholder}
+                      className="field-textarea"
+                    />
+                  ) : (
+                    <input
+                      id={field.id}
+                      name={field.id}
+                      type={field.type}
+                      placeholder={field.placeholder}
+                      className="field-input"
+                    />
+                  )}
+                </div>
+              ))}
+
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <PrimaryButton>TODO - Formulaire non connecté</PrimaryButton>
+                <SecondaryButton href={page.cta.primaryAction.href}>
+                  {page.cta.primaryAction.label}
+                </SecondaryButton>
+              </div>
+            </form>
+          </article>
+
+          <article className="surface-card bg-[linear-gradient(180deg,rgba(242,238,232,0.86),rgba(255,255,255,0.8))] px-6 py-6 sm:px-7 sm:py-7">
+            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+              TODO
+            </p>
+            <h2 className="mt-4 text-4xl">Avant d’écrire</h2>
+            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              {page.sections.form.note}
+            </p>
+            <div className="mt-6 flex flex-col gap-3">
+              <SecondaryButton href={page.cta.primaryAction.href}>
+                {page.cta.primaryAction.label}
+              </SecondaryButton>
+              <SecondaryButton href={page.cta.secondaryAction.href}>
+                {page.cta.secondaryAction.label}
+              </SecondaryButton>
+            </div>
+          </article>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <PageCta {...page.cta} />
       </SectionContainer>
     </SiteFrame>
   );

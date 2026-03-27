@@ -1,9 +1,10 @@
 import ContentBlock from "@/components/common/ContentBlock";
 import PageHero from "@/components/common/PageHero";
-import PrimaryButton from "@/components/common/PrimaryButton";
-import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
 import SiteFrame from "@/components/layout/SiteFrame";
+import InfoCardGrid from "@/components/shared/InfoCardGrid";
+import PageCta from "@/components/shared/PageCta";
+import VisualMosaic from "@/components/shared/VisualMosaic";
 import { getPublicPage } from "@/data/pages";
 
 const page = getPublicPage("memoiresHistoire");
@@ -25,53 +26,67 @@ export default function MemoiresHistoirePage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <ContentBlock
-          title={page.sections.intro.title}
-          paragraphs={page.sections.intro.paragraphs}
-        />
-      </SectionContainer>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+          <ContentBlock
+            eyebrow={page.sections.intro.eyebrow}
+            title={page.sections.intro.title}
+            paragraphs={page.sections.intro.paragraphs}
+          />
 
-      <SectionContainer className="pt-0">
-        <ContentBlock
-          eyebrow={page.sections.cards.eyebrow}
-          title={page.sections.cards.title}
-          paragraphs={page.sections.cards.description}
-        />
-
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {page.sections.cards.items.map((card, index) => (
-            <article
-              key={card.title}
-              className="surface-card flex h-full flex-col gap-4 px-6 py-6 sm:px-7 sm:py-7"
-            >
-              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-                {page.sections.cards.labelPrefix} 0{index + 1}
-              </p>
-              <h2 className="text-3xl leading-tight">{card.title}</h2>
-              <p className="text-sm leading-7 text-muted sm:text-base">
-                {card.description}
-              </p>
-            </article>
-          ))}
+          <article className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.82))] px-6 py-6 sm:px-7 sm:py-7">
+            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+              {page.sections.intro.aside.eyebrow}
+            </p>
+            <h3 className="mt-4 text-4xl">{page.sections.intro.aside.title}</h3>
+            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+              {page.sections.intro.aside.description}
+            </p>
+          </article>
         </div>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <aside className="surface-card flex flex-col gap-6 px-6 py-6 sm:px-8 sm:py-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="space-y-3">
-            <p className="eyebrow">{page.cta.eyebrow}</p>
-            <h2 className="text-4xl">{page.cta.title}</h2>
-            <p className="max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              {page.cta.description}
-            </p>
+        <div className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.9))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] lg:items-stretch">
+            <ContentBlock
+              eyebrow={page.sections.cycle.eyebrow}
+              title={page.sections.cycle.title}
+              paragraphs={page.sections.cycle.description}
+              className="rounded-[1.9rem] border border-white/75 bg-white/62 p-6 sm:p-8"
+            />
+
+            <article className="rounded-[2rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] p-6 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:p-8">
+              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+                {page.sections.cycle.featured.eyebrow}
+              </p>
+              <h3 className="mt-6 text-4xl sm:text-[2.8rem]">
+                {page.sections.cycle.featured.title}
+              </h3>
+              <p className="mt-5 text-sm leading-8 text-muted sm:text-base">
+                {page.sections.cycle.featured.description}
+              </p>
+            </article>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <PrimaryButton href={page.cta.href}>{page.cta.label}</PrimaryButton>
-            <SecondaryButton href={page.cta.secondaryAction.href}>
-              {page.cta.secondaryAction.label}
-            </SecondaryButton>
-          </div>
-        </aside>
+
+          <InfoCardGrid
+            items={page.sections.cycle.items}
+            className="mt-6"
+            columns="md:grid-cols-2 xl:grid-cols-4"
+          />
+        </div>
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <ContentBlock
+          eyebrow={page.sections.resources.eyebrow}
+          title={page.sections.resources.title}
+          paragraphs={page.sections.resources.description}
+        />
+        <VisualMosaic items={page.sections.resources.items} className="mt-10" />
+      </SectionContainer>
+
+      <SectionContainer className="pt-0">
+        <PageCta {...page.cta} />
       </SectionContainer>
     </SiteFrame>
   );

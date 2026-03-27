@@ -11,7 +11,13 @@ const site = {
     email: "TODO@example.com",
     emailHref: "mailto:TODO@example.com",
     phone: "TODO",
+    phoneHref: "",
     whatsapp: "TODO",
+    whatsappHref: "",
+    responseNote:
+      "TODO - Les modalités de réponse, de suivi et d'orientation seront précisées ici.",
+    locationNote:
+      "TODO - Une indication de territoire, de présence ou de disponibilité pourra être ajoutée plus tard.",
   },
   legal: {
     copyrightName: "Association Kréyol",
