@@ -100,10 +100,10 @@ const homeData = {
       },
       {
         label: "04",
-        title: "Engagements",
+        title: "Partenaires",
         description:
-          "TODO - Les principes, responsabilités et choix culturels qui orientent la démarche.",
-        href: "/engagements",
+          "TODO - Une entrée vers les soutiens, coopérations et relais qui accompagnent le projet.",
+        href: "/partenaires",
       },
     ],
   },

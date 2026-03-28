@@ -1,8 +1,3 @@
-import {
-  archiveFilters,
-  archiveItems,
-  archivePaths,
-} from "@/data/archives";
 import { getNavigationItem } from "@/data/navigation";
 import {
   partnerCollaborationCards,
@@ -281,16 +276,16 @@ const publicPages = {
     },
     cta: {
       eyebrow: "Prolonger la visite",
-      title: "Explorer les archives à venir.",
+      title: "Poursuivre la visite.",
       description:
-        "TODO - Cette invitation servira plus tard à prolonger la visite vers des ressources plus détaillées ou une prise de contact autour des fonds.",
+        "TODO - Cette invitation servira plus tard à prolonger la visite vers d'autres rubriques ou une prise de contact autour des contenus mémoriels.",
       primaryAction: {
-        href: "/archives",
-        label: "Explorer les archives",
-      },
-      secondaryAction: {
         href: "/contact",
         label: "Nous contacter",
+      },
+      secondaryAction: {
+        href: "/association",
+        label: "Voir l'association",
       },
       variant: "memory",
     },
@@ -546,104 +541,6 @@ const publicPages = {
       variant: "green",
     },
   }),
-  engagements: buildPublicPage("/engagements", {
-    seoDescription:
-      "Les grands repères, intentions et lignes de travail portés par l’Association Kréyol.",
-    hero: {
-      eyebrow: "Positionnement",
-      description:
-        "TODO - Cette page exprimera la ligne de conduite, les responsabilités et les principes qui orientent les actions de l'association.",
-    },
-    sections: {
-      manifesto: {
-        eyebrow: "Texte manifeste",
-        title: "Un cadre de principes à rendre plus explicite au fil du projet.",
-        paragraphs: [
-          "TODO - Formuler ici un texte manifeste sur les choix culturels, relationnels et éditoriaux qui guident l'association.",
-          "TODO - Expliquer ensuite comment ces engagements se traduisent dans la manière de transmettre, de collaborer et d'accueillir les publics.",
-        ],
-        aside: {
-          eyebrow: "Cap",
-          title: "Préserver, relier, transmettre.",
-          description:
-            "TODO - Ce bloc pourra plus tard condenser en quelques lignes les responsabilités culturelles que le projet souhaite assumer.",
-        },
-      },
-      cards: {
-        eyebrow: "Engagements",
-        title: "Trois lignes de travail pour donner de la cohérence à la démarche.",
-        description:
-          "TODO - Ces blocs expliciteront plus tard les convictions qui structurent les actions et les choix éditoriaux.",
-        items: [
-          {
-            eyebrow: "Engagement",
-            title: "Préserver",
-            description:
-              "TODO - Détailler la volonté de préserver des récits, des pratiques et des repères avec exigence et soin.",
-            tone: "paper",
-          },
-          {
-            eyebrow: "Engagement",
-            title: "Relier",
-            description:
-              "TODO - Préciser comment l'association souhaite créer des liens entre générations, territoires et interlocuteurs.",
-            tone: "primary",
-          },
-          {
-            eyebrow: "Engagement",
-            title: "Transmettre",
-            description:
-              "TODO - Décrire la manière dont les savoirs et les expressions culturelles pourront circuler et rester vivants.",
-            tone: "accent",
-          },
-        ],
-      },
-      actions: {
-        eyebrow: "Actions concrètes",
-        title: "Des traductions opérationnelles encore à documenter avec précision.",
-        description:
-          "TODO - Cette section précisera plus tard comment les engagements se reflètent dans la programmation, les partenariats ou la manière de publier.",
-        items: [
-          {
-            eyebrow: "Éditorial",
-            title: "Soigner les contenus",
-            description:
-              "TODO - Montrer ici comment les contenus peuvent être contextualisés, sourcés ou relus avec attention.",
-            tone: "secondary",
-          },
-          {
-            eyebrow: "Relationnel",
-            title: "Accueillir les échanges",
-            description:
-              "TODO - Décrire les formes de dialogue, d'écoute ou de collaboration que l'association souhaite rendre possibles.",
-            tone: "green",
-          },
-          {
-            eyebrow: "Public",
-            title: "Rendre les actions lisibles",
-            description:
-              "TODO - Expliquer comment les activités, ressources et engagements seront présentés avec plus de clarté.",
-            tone: "paper",
-          },
-        ],
-      },
-    },
-    cta: {
-      eyebrow: "Échange",
-      title: "Partager ces intentions avec nous.",
-      description:
-        "TODO - Cette invitation pourra plus tard orienter vers un échange, un partenariat ou une prise de parole liée aux engagements.",
-      primaryAction: {
-        href: "/contact",
-        label: "Échanger avec nous",
-      },
-      secondaryAction: {
-        href: "/partenaires",
-        label: "Voir les partenariats",
-      },
-      variant: "default",
-    },
-  }),
   partenaires: buildPublicPage("/partenaires", {
     seoDescription:
       "Une présentation sobre des coopérations, soutiens et possibilités de partenariat.",
@@ -716,67 +613,6 @@ const publicPages = {
         label: "Découvrir l'association",
       },
       variant: "warm",
-    },
-  }),
-  archives: buildPublicPage("/archives", {
-    seoDescription:
-      "Une base documentaire en construction autour de ressources, repères et parcours d’archives.",
-    hero: {
-      eyebrow: "Ressources & fonds",
-      description:
-        "TODO - Cette page accueillera plus tard des documents, ensembles thématiques, repères et matériaux éditorialisés.",
-    },
-    sections: {
-      intro: {
-        eyebrow: "Introduction",
-        title: "Une architecture pensée pour accueillir des ressources plus nombreuses et mieux structurées.",
-        paragraphs: [
-          "TODO - Présenter ici les types de fonds, de documents et de ressources qui pourront être consultés, transmis ou valorisés.",
-          "TODO - Expliquer comment cette structure est pensée pour accueillir des notices, des ensembles thématiques et des contenus de référence.",
-        ],
-        aside: {
-          eyebrow: "Parcours",
-          title: "Une future base documentaire lisible et progressive.",
-          description:
-            "TODO - Ce bloc pourra plus tard rappeler la logique de consultation, de classement ou de contribution de la page.",
-        },
-      },
-      filters: {
-        eyebrow: "Explorer",
-        title: "Des entrées visuelles simples pour préparer la navigation.",
-        description:
-          "TODO - Ces repères n'activent pas encore de filtre dynamique, mais dessinent déjà des parcours de consultation possibles.",
-        items: archiveFilters,
-      },
-      cards: {
-        eyebrow: "Archives en construction",
-        title: "Des ensembles prêts à accueillir dossiers, documents, voix et repères.",
-        description:
-          "TODO - Chaque carte pourra plus tard renvoyer vers une notice, une collection ou un ensemble thématique détaillé.",
-        items: archiveItems,
-      },
-      paths: {
-        eyebrow: "Parcours de consultation",
-        title: "Préparer plusieurs façons d'entrer dans les ressources.",
-        description:
-          "TODO - Cette section accueillera plus tard des accès thématiques, visuels ou documentaires plus développés.",
-        items: archivePaths,
-      },
-    },
-    cta: {
-      eyebrow: "Contribution",
-      title: "Contribuer ou signaler une ressource.",
-      description:
-        "TODO - Cette invitation servira plus tard à orienter vers une prise de contact autour de documents, informations ou archives à partager.",
-      primaryAction: {
-        href: "/contact",
-        label: "Nous contacter",
-      },
-      secondaryAction: {
-        href: "/memoires-histoire",
-        label: "Voir l'axe mémoire",
-      },
-      variant: "default",
     },
   }),
   contact: buildPublicPage("/contact", {

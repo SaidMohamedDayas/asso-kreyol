@@ -4,9 +4,7 @@ const primaryNavigation = [
   { label: "Mémoires & Histoire", href: "/memoires-histoire" },
   { label: "Arts & Folklore", href: "/arts-folklore" },
   { label: "Langue & Transmission", href: "/langue-transmission" },
-  { label: "Engagements", href: "/engagements" },
   { label: "Partenaires", href: "/partenaires" },
-  { label: "Archives", href: "/archives" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -37,12 +35,7 @@ const footerGroups = [
   },
   {
     title: "Ressources",
-    items: getNavigationItems([
-      "/engagements",
-      "/partenaires",
-      "/archives",
-      "/contact",
-    ]),
+    items: getNavigationItems(["/partenaires", "/contact"]),
   },
 ];
 
