@@ -27,6 +27,7 @@ export default function Header() {
               alt={`Logo de ${site.name}`}
               width={1024}
               height={1024}
+              loading="eager"
               sizes="(max-width: 639px) 80px, 96px"
               className="mt-1 h-11 w-auto mix-blend-multiply sm:h-14"
             />
