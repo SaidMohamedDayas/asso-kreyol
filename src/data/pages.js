@@ -197,6 +197,8 @@ const publicPages = {
           title: "Omaj Ba Yo · TODO",
           description:
             "TODO - Espace réservé à un temps fort mémoriel, une programmation dédiée ou une proposition patrimoniale à contextualiser.",
+          imageSrc: "/images/assokreyol/memory/memory-omaj_ba_yo.jpg",
+          imageAlt: "Groupe réuni en intérieur",
         },
         items: [
           {
@@ -243,6 +245,9 @@ const publicPages = {
               "TODO - Un ensemble pour les supports visuels liés aux actions mémorielles.",
             tone: "paper",
             size: "wide",
+            imageSrc: "/images/assokreyol/memory/memory-omaj_ba_yo-logo.png",
+            imageAlt: "Visuel Omaj Ba Yo",
+            imageFit: "contain",
           },
           {
             tag: "Archive",
@@ -252,6 +257,10 @@ const publicPages = {
               "TODO - Une entrée pour les contextes, dates et jalons à rendre plus clairs.",
             tone: "primary",
             size: "square",
+            imageSrc:
+              "/images/assokreyol/memory/memory-exposition_archeologie_de_lesclavage_colonial.jpg",
+            imageAlt: "Visuel d'exposition",
+            imageFit: "contain",
           },
           {
             tag: "Voix",
@@ -261,6 +270,9 @@ const publicPages = {
               "TODO - Une place pour les paroles, souvenirs et traces orales à documenter.",
             tone: "green",
             size: "tall",
+            imageSrc: "/images/assokreyol/memory/memory-hommage_a_marcel_dorigny.png",
+            imageAlt: "Visuel d'hommage",
+            imageFit: "contain",
           },
           {
             tag: "Ressource",
@@ -270,6 +282,9 @@ const publicPages = {
               "TODO - Un cadre pour accueillir plus tard des dossiers éditorialisés.",
             tone: "accent",
             size: "square",
+            imageSrc: "/images/assokreyol/memory/memory_gwo-ka-se-tan-nou-tout.png",
+            imageAlt: "Visuel de programmation",
+            imageFit: "contain",
           },
         ],
       },
@@ -359,6 +374,8 @@ const publicPages = {
           title: "Kafé Pawòl · TODO",
           description:
             "TODO - Placeholder pour un temps d'échange, de parole partagée ou de rencontre publique.",
+          imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-kafe_pawol.jpeg",
+          imageAlt: "Prise de parole devant un micro",
         },
         items: [
           {
@@ -402,36 +419,47 @@ const publicPages = {
             eyebrow: "Ambiance",
             title: "Moments publics",
             description:
-              "TODO - Placeholder visuel pour une restitution ou un temps collectif.",
+              "Une première image de groupe introduit une présence collective simple et chaleureuse.",
             tone: "primary",
             size: "feature",
+            imageSrc: "/images/assokreyol/hero/hero-home.jpg",
+            imageAlt: "Groupe réuni dans une salle",
           },
           {
             tag: "Pratique",
             eyebrow: "Transmission",
-            title: "Atelier",
+            title: "Dictée en Kréyòl",
             description:
-              "TODO - Placeholder visuel pour un format d'initiation ou de pratique.",
+              "Une première matière visuelle pour les formats de langue et d’atelier.",
             tone: "accent",
             size: "square",
+            imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-dictee_en_kreyol.jpeg",
+            imageAlt: "Atelier autour d'une table",
           },
           {
             tag: "Rencontre",
             eyebrow: "Public",
-            title: "Parole partagée",
+            title: "Marché Kréyòl",
             description:
-              "TODO - Placeholder visuel pour un échange ou une médiation culturelle.",
+              "Une composition plus dense pour suggérer les formats conviviaux et ouverts au public.",
             tone: "green",
             size: "tall",
+            imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-marche_kreyol.png",
+            imageAlt: "Stands et produits présentés en intérieur",
+            imageFit: "contain",
           },
           {
             tag: "Rythme",
             eyebrow: "Matière",
-            title: "Répertoire vivant",
+            title: "Découverte",
             description:
-              "TODO - Placeholder visuel pour un geste, un rythme ou une présence scénique.",
+              "Une image de découverte qui garde une tonalité simple et éditoriale.",
             tone: "secondary",
             size: "wide",
+            imageSrc:
+              "/images/assokreyol/kreyolodays/kreyolodays_decouverte_bananes_des_antilles.jpg",
+            imageAlt: "Produits et support de présentation",
+            imageFit: "contain",
           },
         ],
       },
@@ -566,9 +594,9 @@ const publicPages = {
       },
       showcase: {
         eyebrow: "Partenaires",
-        title: "Des appuis et relais à rendre visibles avec clarté lorsqu'ils seront confirmés.",
+        title: "Une première sélection de logos et de relais déjà présents dans les ressources du projet.",
         description:
-          "TODO - Cette grille accueillera plus tard les structures, lieux ou réseaux associés au projet.",
+          "Cette grille donne déjà un aperçu des appuis visibles à ce stade, tout en laissant en attente les précisions sur la nature exacte des collaborations.",
         items: partnerShowcaseItems,
       },
       reasons: {

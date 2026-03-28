@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import PageHero from "@/components/common/PageHero";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -58,8 +59,20 @@ export default function PartenairesPage() {
               key={item.title}
               className="surface-card flex min-h-44 flex-col items-center justify-center px-6 py-6 text-center sm:min-h-48 sm:px-7 sm:py-8"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.86))] text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
-                {item.logoLabel}
+              <div className="relative flex h-20 w-full max-w-[11rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.9))] px-4 py-3">
+                {item.logoSrc ? (
+                  <Image
+                    src={item.logoSrc}
+                    alt={item.logoAlt || ""}
+                    fill
+                    sizes="176px"
+                    className="object-contain p-3"
+                  />
+                ) : (
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
+                    {item.logoLabel}
+                  </span>
+                )}
               </div>
               <h3 className="mt-5 text-[1.9rem] leading-tight sm:text-3xl">
                 {item.title}

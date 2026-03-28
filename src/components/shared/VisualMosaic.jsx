@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const sizeClasses = {
@@ -36,13 +37,32 @@ export default function VisualMosaic({ items, className }) {
             sizeClasses[item.size] || ""
           )}
         >
-          <div
-            aria-hidden="true"
-            className={cn(
-              "absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]",
-              toneClasses[item.tone] || toneClasses.paper
-            )}
-          />
+          {item.imageSrc ? (
+            <>
+              <Image
+                src={item.imageSrc}
+                alt={item.imageAlt || ""}
+                fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw"
+                className={cn(
+                  "transition-transform duration-500 group-hover:scale-[1.03]",
+                  item.imageFit === "contain" ? "object-contain p-5" : "object-cover"
+                )}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,246,0.12),rgba(251,249,246,0.76))]"
+              />
+            </>
+          ) : (
+            <div
+              aria-hidden="true"
+              className={cn(
+                "absolute inset-0 transition-transform duration-500 group-hover:scale-[1.03]",
+                toneClasses[item.tone] || toneClasses.paper
+              )}
+            />
+          )}
           <div
             aria-hidden="true"
             className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/78 to-transparent"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -31,8 +32,20 @@ export default function PartnerShowcase({ partners }) {
               key={item.title}
               className="group flex min-h-40 flex-col items-center justify-center rounded-[1.6rem] border border-white/80 bg-white/74 px-5 py-6 text-center shadow-[0_22px_44px_-38px_rgba(29,25,21,0.22)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_54px_-40px_rgba(29,25,21,0.26)] sm:min-h-44"
             >
-              <div className="flex h-16 w-16 items-center justify-center rounded-full border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.86))] text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
-                {item.logoLabel || "TODO"}
+              <div className="relative flex h-20 w-full max-w-[10rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.9))] px-3 py-3">
+                {item.logoSrc ? (
+                  <Image
+                    src={item.logoSrc}
+                    alt={item.logoAlt || ""}
+                    fill
+                    sizes="160px"
+                    className="object-contain p-3"
+                  />
+                ) : (
+                  <span className="text-xs font-semibold uppercase tracking-[0.22em] text-secondary">
+                    {item.logoLabel || "TODO"}
+                  </span>
+                )}
               </div>
               <h3 className="mt-5 text-2xl leading-tight">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>

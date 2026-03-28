@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import PageHero from "@/components/common/PageHero";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -59,6 +60,17 @@ export default function MemoiresHistoirePage() {
             />
 
             <article className="rounded-[2rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] p-6 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:p-8">
+              {page.sections.cycle.featured.imageSrc ? (
+                <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[1.45rem] border border-white/80 bg-muted/70">
+                  <Image
+                    src={page.sections.cycle.featured.imageSrc}
+                    alt={page.sections.cycle.featured.imageAlt || ""}
+                    fill
+                    sizes="(max-width: 1279px) 100vw, 48vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
               <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
                 {page.sections.cycle.featured.eyebrow}
               </p>

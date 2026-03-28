@@ -23,6 +23,8 @@ const homeData = {
       title: "Une présence éditoriale pensée comme un lieu de mémoire vivante.",
       description:
         "TODO - Ce bloc visuel donnera plus tard un aperçu du ton, des rendez-vous et des matières culturelles portés par l'association.",
+      imageSrc: "/images/assokreyol/hero/hero-home.jpg",
+      imageAlt: "Groupe réuni dans une salle",
     },
     highlights: [
       {
@@ -118,24 +120,35 @@ const homeData = {
         title: "Omaj Ba Yo · TODO",
         description:
           "TODO - Placeholder de contenu mémoriel à confirmer et à documenter plus précisément.",
+        imageSrc: "/images/assokreyol/memory/memory-omaj_ba_yo.jpg",
+        imageAlt: "Groupe réuni en intérieur",
       },
       {
         label: "Focus",
         title: "Hommage · TODO",
         description:
           "TODO - Espace réservé à une mise en lumière, un récit ou une évocation contextualisée.",
+        imageSrc: "/images/assokreyol/memory/memory-hommage_a_marcel_dorigny.png",
+        imageAlt: "Visuel d'hommage",
+        imageFit: "contain",
       },
       {
         label: "Transmission",
         title: "Stage Gwo Ka · TODO",
         description:
           "TODO - Placeholder de temps fort ou d'atelier lié à la mémoire des pratiques.",
+        imageSrc: "/images/assokreyol/memory/memory-stage_gwo_ka.jpeg",
+        imageAlt: "Atelier autour du gwo ka",
       },
       {
         label: "Exposition",
         title: "Exposition · TODO",
         description:
           "TODO - Prévoir ici une entrée vers une proposition visuelle, documentaire ou éditoriale.",
+        imageSrc:
+          "/images/assokreyol/memory/memory-exposition_archeologie_de_lesclavage_colonial.jpg",
+        imageAlt: "Visuel d'exposition",
+        imageFit: "contain",
       },
     ],
     cta: {
@@ -150,29 +163,40 @@ const homeData = {
       "TODO - Cette section présentera plus tard une sélection d'activités, de formats publics et d'expériences culturelles à mettre en valeur.",
     items: [
       {
-        title: "Spectacle",
-        description:
-          "TODO - Placeholder pour une proposition scénique, musicale ou performative.",
-      },
-      {
         title: "Kafé Pawòl",
         description:
           "TODO - Placeholder pour un temps d'échange, de discussion ou de parole partagée.",
+        imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-kafe_pawol.jpeg",
+        imageAlt: "Prise de parole devant un micro",
       },
       {
         title: "Dictée en Kréyòl",
         description:
           "TODO - Placeholder pour un moment de langue, de jeu ou de transmission.",
+        imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-dictee_en_kreyol.jpeg",
+        imageAlt: "Atelier autour d'une table",
       },
       {
         title: "Découverte",
         description:
           "TODO - Placeholder pour une initiation, une présentation ou un parcours d'introduction.",
+        imageSrc:
+          "/images/assokreyol/kreyolodays/kreyolodays_decouverte_bananes_des_antilles.jpg",
+        imageAlt: "Produits et support de présentation",
+        imageFit: "contain",
       },
       {
         title: "Marché Kréyòl",
         description:
           "TODO - Placeholder pour un temps convivial, artisanal ou associatif à préciser.",
+        imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-marche_kreyol.png",
+        imageAlt: "Stands et produits présentés en intérieur",
+        imageFit: "contain",
+      },
+      {
+        title: "Spectacle",
+        description:
+          "TODO - Placeholder pour une proposition scénique, musicale ou performative.",
       },
       {
         title: "Cours de Kréyòl",
@@ -191,45 +215,70 @@ const homeData = {
     description:
       "TODO - Cette galerie accueillera plus tard des images, détails, ambiances et fragments des temps forts du site.",
     note:
-      "TODO - Les images définitives et leurs légendes viendront enrichir cette composition dans une prochaine étape.",
+      "Une première sélection d’images locales nourrit déjà cette composition. Les légendes détaillées pourront être précisées plus tard.",
     items: [
       {
-        title: "Scène",
-        description: "TODO - Placeholder visuel pour un moment public.",
+        tag: "Scène",
+        eyebrow: "Temps partagé",
+        title: "Présences collectives",
+        description: "Une première image d’ensemble vient installer une matière humaine et conviviale.",
         tone: "primary",
         size: "feature",
+        imageSrc: "/images/assokreyol/hero/hero-home.jpg",
+        imageAlt: "Groupe réuni dans une salle",
       },
       {
-        title: "Transmission",
-        description: "TODO - Placeholder visuel pour un atelier ou un échange.",
+        tag: "Transmission",
+        eyebrow: "Rencontre",
+        title: "Parole & écoute",
+        description: "Une scène d’échange qui suggère déjà le ton des temps publics à documenter.",
         tone: "accent",
         size: "square",
+        imageSrc: "/images/assokreyol/kreyolodays/kreyolodays-kafe_pawol.jpeg",
+        imageAlt: "Prise de parole devant un micro",
       },
       {
-        title: "Rencontre",
-        description: "TODO - Placeholder visuel pour une parole partagée.",
+        tag: "Mémoire",
+        eyebrow: "Hommage",
+        title: "Repères visuels",
+        description: "Un visuel de programmation utilisé ici comme trace éditoriale sobre.",
         tone: "green",
         size: "tall",
+        imageSrc: "/images/assokreyol/memory/memory-hommage_a_marcel_dorigny.png",
+        imageAlt: "Visuel d'hommage",
+        imageFit: "contain",
       },
       {
-        title: "Archives",
-        description: "TODO - Placeholder visuel pour un document ou une trace.",
+        tag: "Archives",
+        eyebrow: "Document",
+        title: "Exposition",
+        description: "Une entrée visuelle plus patrimoniale, à relier plus tard à des contenus contextualisés.",
         tone: "paper",
         size: "square",
+        imageSrc:
+          "/images/assokreyol/memory/memory-exposition_archeologie_de_lesclavage_colonial.jpg",
+        imageAlt: "Visuel d'exposition",
+        imageFit: "contain",
       },
       {
-        title: "Rythmes",
-        description: "TODO - Placeholder visuel pour une pratique vivante.",
+        tag: "Découverte",
+        eyebrow: "Kréyolodays",
+        title: "Matières culturelles",
+        description: "Une image de présentation et de découverte pour rythmer la fin de la galerie.",
         tone: "secondary",
         size: "wide",
+        imageSrc:
+          "/images/assokreyol/kreyolodays/kreyolodays_decouverte_bananes_des_antilles.jpg",
+        imageAlt: "Produits et support de présentation",
+        imageFit: "contain",
       },
     ],
   },
   partners: {
     eyebrow: "Ils nous soutiennent",
-    title: "Des appuis et relais à rendre visibles avec clarté lorsqu’ils seront confirmés.",
+    title: "Une première sélection de soutiens et de relais déjà visibles dans les ressources du projet.",
     description:
-      "TODO - Cette section présentera plus tard les structures, collectifs ou partenaires associés au projet.",
+      "Cette section reste évolutive. Elle donne déjà un aperçu des logos disponibles, sans détailler encore la nature précise de chaque collaboration.",
     items: partnerShowcaseItems,
     cta: {
       label: "Voir les partenaires",

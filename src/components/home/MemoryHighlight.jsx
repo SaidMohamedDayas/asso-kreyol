@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import PrimaryButton from "@/components/common/PrimaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -38,6 +39,21 @@ export default function MemoryHighlight({ section }) {
           </div>
 
           <article className="rounded-[1.8rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] p-5 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:rounded-[2rem] sm:p-8">
+            {featuredItem.imageSrc ? (
+              <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/80 bg-muted/70">
+                <Image
+                  src={featuredItem.imageSrc}
+                  alt={featuredItem.imageAlt || ""}
+                  fill
+                  sizes="(max-width: 1279px) 100vw, 46vw"
+                  className={featuredItem.imageFit === "contain" ? "object-contain p-4" : "object-cover"}
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/52 to-transparent"
+                />
+              </div>
+            ) : null}
             <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
               {featuredItem.label}
             </p>
@@ -60,6 +76,17 @@ export default function MemoryHighlight({ section }) {
                   : "bg-white/68"
               }`}
             >
+              {item.imageSrc ? (
+                <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.35rem] border border-white/80 bg-white/68">
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.imageAlt || ""}
+                    fill
+                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 24vw"
+                    className={item.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
+                  />
+                </div>
+              ) : null}
               <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
                 {item.label}
               </p>

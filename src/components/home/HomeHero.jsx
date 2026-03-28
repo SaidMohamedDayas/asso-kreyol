@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PrimaryButton from "@/components/common/PrimaryButton";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -40,6 +41,26 @@ export default function HomeHero({ hero }) {
           </div>
 
           <aside className="relative min-h-[17.5rem] rounded-[1.8rem] border border-white/75 bg-[linear-gradient(160deg,rgba(255,255,255,0.84),rgba(255,255,255,0.56))] p-4 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:min-h-[21rem] sm:rounded-[2rem] sm:p-6 lg:min-h-[22rem] xl:min-h-[24rem] xl:p-7">
+            {hero.visual.imageSrc ? (
+              <>
+                <Image
+                  src={hero.visual.imageSrc}
+                  alt={hero.visual.imageAlt || ""}
+                  fill
+                  priority
+                  sizes="(max-width: 1023px) 100vw, 42vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,246,0.08),rgba(251,249,246,0.68))]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_34%),linear-gradient(145deg,rgba(29,25,21,0.04),rgba(29,25,21,0.18))]"
+                />
+              </>
+            ) : null}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -right-8 top-0 h-32 w-32 rounded-full bg-primary/12 blur-3xl"
@@ -50,7 +71,7 @@ export default function HomeHero({ hero }) {
             />
 
             <div className="relative flex h-full flex-col justify-between gap-6">
-              <div className="rounded-[1.5rem] border border-white/80 bg-white/72 p-4 shadow-[0_22px_48px_-36px_rgba(29,25,21,0.26)] sm:rounded-[1.75rem] sm:p-6">
+              <div className="rounded-[1.5rem] border border-white/80 bg-white/78 p-4 shadow-[0_22px_48px_-36px_rgba(29,25,21,0.26)] backdrop-blur-[6px] sm:rounded-[1.75rem] sm:p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-secondary">
                   {hero.visual.label}
                 </p>
@@ -66,7 +87,7 @@ export default function HomeHero({ hero }) {
                 {hero.highlights.map((item) => (
                   <span
                     key={item.title}
-                    className="inline-flex items-center rounded-full border border-white/80 bg-white/68 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary shadow-[0_18px_34px_-28px_rgba(29,25,21,0.22)]"
+                    className="inline-flex items-center rounded-full border border-white/85 bg-white/74 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary shadow-[0_18px_34px_-28px_rgba(29,25,21,0.22)] backdrop-blur-[6px]"
                   >
                     {item.title}
                   </span>

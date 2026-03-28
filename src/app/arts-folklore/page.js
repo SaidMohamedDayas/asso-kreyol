@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import PageHero from "@/components/common/PageHero";
 import SectionContainer from "@/components/common/SectionContainer";
@@ -62,6 +63,17 @@ export default function ArtsFolklorePage() {
         <div className="surface-card bg-[linear-gradient(180deg,rgba(238,180,39,0.12),rgba(255,255,255,0.92))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <div className="grid gap-5 sm:gap-6 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-stretch">
             <article className="rounded-[2rem] border border-white/80 bg-[linear-gradient(155deg,rgba(255,255,255,0.72),rgba(255,255,255,0.56))] p-6 shadow-[0_26px_58px_-42px_rgba(29,25,21,0.28)] sm:p-8">
+              {page.sections.kreyolodays.featured.imageSrc ? (
+                <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[1.45rem] border border-white/80 bg-white/68">
+                  <Image
+                    src={page.sections.kreyolodays.featured.imageSrc}
+                    alt={page.sections.kreyolodays.featured.imageAlt || ""}
+                    fill
+                    sizes="(max-width: 1279px) 100vw, 48vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
               <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
                 {page.sections.kreyolodays.featured.eyebrow}
               </p>
