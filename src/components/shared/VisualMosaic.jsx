@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "@/components/shared/Reveal";
 import { cn } from "@/lib/utils";
 
 const sizeClasses = {
@@ -29,14 +30,17 @@ export default function VisualMosaic({ items, className }) {
         className
       )}
     >
-      {items.map((item) => (
-        <article
+      {items.map((item, index) => (
+        <Reveal
           key={item.title}
-          className={cn(
-            "surface-card group relative isolate flex h-full flex-col justify-between px-4 py-4 transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_64px_-42px_rgba(29,25,21,0.28)] sm:px-5 sm:py-5",
-            sizeClasses[item.size] || ""
-          )}
+          delay={index * 0.06}
+          className={cn("h-full", sizeClasses[item.size] || "")}
         >
+          <article
+            className={cn(
+              "surface-card interactive-card group relative isolate flex h-full flex-col justify-between px-4 py-4 sm:px-5 sm:py-5"
+            )}
+          >
           {item.imageSrc ? (
             <>
               <Image
@@ -46,12 +50,12 @@ export default function VisualMosaic({ items, className }) {
                 sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw"
                 className={cn(
                   "transition-transform duration-500 group-hover:scale-[1.03]",
-                  item.imageFit === "contain" ? "object-contain p-5" : "object-cover"
+                  item.imageFit === "contain" ? "object-contain p-5 sm:p-6" : "object-cover"
                 )}
               />
               <div
                 aria-hidden="true"
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,246,0.12),rgba(251,249,246,0.76))]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,246,0.1),rgba(251,249,246,0.78))]"
               />
             </>
           ) : (
@@ -65,7 +69,7 @@ export default function VisualMosaic({ items, className }) {
           )}
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/78 to-transparent"
+            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/82 via-white/54 to-transparent"
           />
           <div
             aria-hidden="true"
@@ -91,7 +95,8 @@ export default function VisualMosaic({ items, className }) {
               ) : null}
             </div>
           </div>
-        </article>
+          </article>
+        </Reveal>
       ))}
     </div>
   );

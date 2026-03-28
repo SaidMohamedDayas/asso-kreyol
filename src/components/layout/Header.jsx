@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import PrimaryButton from "@/components/common/PrimaryButton";
 import MobileNav from "@/components/layout/MobileNav";
@@ -6,12 +7,12 @@ import { contactLink, primaryNavigation } from "@/data/navigation";
 import site from "@/data/site";
 
 const desktopNavigation = primaryNavigation.filter(
-  (item) => item.href !== contactLink.href
+  (item) => item.href !== contactLink.href,
 );
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-border/80 bg-background/88 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-border/80 bg-background/88 shadow-[0_18px_42px_-42px_rgba(29,25,21,0.45)] backdrop-blur">
       <div className="site-container">
         <div className="flex min-h-[4.25rem] items-center gap-3 py-2.5 sm:min-h-20 sm:gap-4 sm:py-3">
           <Link
@@ -21,9 +22,14 @@ export default function Header() {
             <span className="block text-[0.62rem] font-bold uppercase tracking-[0.22em] text-secondary sm:text-[0.7rem] sm:tracking-[0.28em]">
               {site.brandLabel}
             </span>
-            <span className="mt-1 block truncate font-serif text-[1.45rem] leading-none tracking-[-0.04em] text-foreground sm:text-[1.8rem]">
-              {site.name}
-            </span>
+            <Image
+              src="/images/assokreyol/logo-assokreyol.png"
+              alt={`Logo de ${site.name}`}
+              width={1024}
+              height={1024}
+              sizes="(max-width: 639px) 80px, 96px"
+              className="mt-1 h-11 w-auto mix-blend-multiply sm:h-14"
+            />
           </Link>
 
           <div className="ml-auto hidden lg:flex lg:min-w-0 lg:flex-1 lg:items-center lg:justify-end lg:gap-3">

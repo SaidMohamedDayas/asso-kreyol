@@ -2,7 +2,7 @@ const site = {
   name: "Association Kréyol",
   shortName: "Kréyol",
   brandLabel: "Association culturelle",
-  slogan: "TODO - Slogan de l'association",
+  slogan: "Exposer et promouvoir la culture et traditions antillaises",
   description:
     "Site vitrine culturel de l’Association Kréyol, entre mémoire, culture et transmission.",
   footerDescription:

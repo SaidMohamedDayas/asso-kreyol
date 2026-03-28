@@ -2,6 +2,7 @@ import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
+import Reveal from "@/components/shared/Reveal";
 
 export default function PartnerShowcase({ partners }) {
   return (
@@ -13,26 +14,28 @@ export default function PartnerShowcase({ partners }) {
         />
 
         <div className="relative grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <ContentBlock
-            eyebrow={partners.eyebrow}
-            title={partners.title}
-            paragraphs={partners.description}
-            className="max-w-2xl"
-          />
-          <div>
-            <SecondaryButton href={partners.cta.href} className="w-full sm:w-auto">
-              {partners.cta.label}
-            </SecondaryButton>
-          </div>
+          <Reveal variant="fadeUp">
+            <ContentBlock
+              eyebrow={partners.eyebrow}
+              title={partners.title}
+              paragraphs={partners.description}
+              className="max-w-2xl"
+            />
+          </Reveal>
+          <Reveal variant="fadeUp" delay={0.08}>
+            <div>
+              <SecondaryButton href={partners.cta.href} className="w-full sm:w-auto">
+                {partners.cta.label}
+              </SecondaryButton>
+            </div>
+          </Reveal>
         </div>
 
         <div className="relative mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {partners.items.map((item) => (
-            <article
-              key={item.title}
-              className="group flex min-h-40 flex-col items-center justify-center rounded-[1.6rem] border border-white/80 bg-white/74 px-5 py-6 text-center shadow-[0_22px_44px_-38px_rgba(29,25,21,0.22)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_54px_-40px_rgba(29,25,21,0.26)] sm:min-h-44"
-            >
-              <div className="relative flex h-20 w-full max-w-[10rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.9))] px-3 py-3">
+          {partners.items.map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.05} className="h-full">
+              <article className="interactive-card group flex min-h-44 flex-col items-center justify-between rounded-[1.6rem] border border-white/80 bg-white/74 px-5 py-6 text-center shadow-[0_22px_44px_-38px_rgba(29,25,21,0.22)] sm:min-h-[15rem]">
+              <div className="relative flex h-[5.5rem] w-full max-w-[10.75rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-secondary/14 bg-[linear-gradient(180deg,rgba(242,238,232,0.96),rgba(255,255,255,0.92))] px-3 py-3">
                 {item.logoSrc ? (
                   <Image
                     src={item.logoSrc}
@@ -47,9 +50,12 @@ export default function PartnerShowcase({ partners }) {
                   </span>
                 )}
               </div>
-              <h3 className="mt-5 text-2xl leading-tight">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
-            </article>
+              <div className="mt-5 space-y-3">
+                <h3 className="text-[1.35rem] leading-tight sm:text-[1.5rem]">{item.title}</h3>
+                <p className="text-sm leading-7 text-muted">{item.description}</p>
+              </div>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

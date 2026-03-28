@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/shared/Reveal";
 
 const alignments = {
   left: {
@@ -25,7 +26,7 @@ export default function PageHero({
   return (
     <header
       className={cn(
-        "surface-card relative isolate overflow-hidden px-5 py-8 sm:px-8 sm:py-12 lg:px-10 xl:px-12",
+        "surface-card relative isolate overflow-hidden px-5 py-8 sm:px-8 sm:py-11 lg:px-10 lg:py-12 xl:px-12",
         className
       )}
     >
@@ -46,31 +47,37 @@ export default function PageHero({
         className="pointer-events-none absolute bottom-8 right-8 hidden h-24 w-24 rounded-[2rem] border border-secondary/10 bg-white/30 xl:block"
       />
 
-      <div
+      <Reveal
+        variant="fadeUp"
         className={cn(
-          "relative flex flex-col gap-5 sm:gap-6",
-          alignment.container,
+          "relative",
           alignment.copy
         )}
       >
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+        <div
+          className={cn("flex flex-col gap-5 sm:gap-6", alignment.container)}
+        >
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
 
-        <div className="space-y-3 sm:space-y-4">
-          <h1 className="text-[2.8rem] leading-[0.94] sm:text-[3.85rem] lg:text-[4.2rem] xl:text-[4.4rem]">
-            {title}
-          </h1>
-          {description ? (
-            <p
-              className={cn(
-                "text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8",
-                alignment.description
-              )}
-            >
-              {description}
-            </p>
-          ) : null}
+          <div className="space-y-3 sm:space-y-4">
+            <h1 className="max-w-[12ch] text-[2.55rem] leading-[0.93] sm:text-[3.45rem] lg:text-[4.05rem] xl:text-[4.28rem]">
+              {title}
+            </h1>
+            {description ? (
+              <p
+                className={cn(
+                  "max-w-[42rem] text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8",
+                  alignment.description
+                )}
+              >
+                {description}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="fine-rule max-w-xl" />
         </div>
-      </div>
+      </Reveal>
     </header>
   );
 }

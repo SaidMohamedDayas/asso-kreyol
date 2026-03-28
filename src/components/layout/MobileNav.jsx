@@ -1,18 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { mobileNavigationNote, primaryNavigation } from "@/data/navigation";
 import NavLink from "@/components/layout/NavLink";
+import {
+  createMobileMenuItemVariants,
+  createMobileMenuOverlayVariants,
+  createMobileMenuPanelVariants,
+  createStaggerContainer,
+} from "@/lib/motion";
 
 export default function MobileNav() {
   const [openPath, setOpenPath] = useState(null);
   const pathname = usePathname();
   const currentPathname = pathname || "/";
   const isOpen = openPath === currentPathname;
+  const shouldReduceMotion = useReducedMotion();
   const triggerRef = useRef(null);
   const panelRef = useRef(null);
   const wasOpenRef = useRef(false);
+
+  const overlayVariants = createMobileMenuOverlayVariants(shouldReduceMotion);
+  const panelVariants = createMobileMenuPanelVariants(shouldReduceMotion);
+  const itemVariants = createMobileMenuItemVariants(shouldReduceMotion);
+  const listVariants = createStaggerContainer({
+    delayChildren: shouldReduceMotion ? 0 : 0.04,
+    staggerChildren: shouldReduceMotion ? 0.02 : 0.05,
+    reduceMotion: shouldReduceMotion,
+  });
 
   useEffect(() => {
     if (!isOpen) {
@@ -95,42 +112,68 @@ export default function MobileNav() {
         </span>
       </button>
 
-      {isOpen ? (
-        <>
-          <button
-            type="button"
-            aria-label="Fermer le menu"
-            onClick={() => setOpenPath(null)}
-            className="fixed inset-0 z-0 bg-foreground/8 backdrop-blur-[1px]"
-          />
+      <AnimatePresence initial={false}>
+        {isOpen ? (
+          <>
+            <motion.button
+              key="mobile-nav-overlay"
+              type="button"
+              aria-label="Fermer le menu"
+              onClick={() => setOpenPath(null)}
+              className="fixed inset-0 z-0 bg-foreground/10 backdrop-blur-[2px]"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={overlayVariants}
+            />
 
-          <div
-            id="mobile-navigation-panel"
-            ref={panelRef}
-            className="surface-card absolute right-0 top-full z-10 mt-2 w-[min(24rem,calc(100vw-1rem))] max-h-[calc(100vh-5.75rem)] overflow-y-auto p-3 sm:mt-3 sm:w-[min(24rem,calc(100vw-2rem))] sm:p-4"
-          >
-            <nav aria-label="Navigation mobile">
-              <ul className="space-y-1.5 sm:space-y-2">
-                {primaryNavigation.map((item) => (
-                  <li key={item.href}>
-                    <NavLink
-                      href={item.href}
-                      variant="mobile"
-                      onClick={() => setOpenPath(null)}
-                    >
-                      {item.label}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <motion.div
+              key="mobile-nav-panel"
+              id="mobile-navigation-panel"
+              ref={panelRef}
+              className="surface-card absolute right-0 top-full z-10 mt-2 w-[min(24rem,calc(100vw-1rem))] max-h-[calc(100vh-5.75rem)] overflow-y-auto p-3 shadow-[0_30px_72px_-42px_rgba(29,25,21,0.3)] sm:mt-3 sm:w-[min(24rem,calc(100vw-2rem))] sm:p-4"
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={panelVariants}
+            >
+              <div
+                aria-hidden="true"
+                className="mb-3 h-px bg-gradient-to-r from-transparent via-secondary/45 to-transparent"
+              />
+              <nav aria-label="Navigation mobile">
+                <motion.ul
+                  className="space-y-1.5 sm:space-y-2"
+                  variants={listVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {primaryNavigation.map((item) => (
+                    <motion.li key={item.href} variants={itemVariants}>
+                      <NavLink
+                        href={item.href}
+                        variant="mobile"
+                        onClick={() => setOpenPath(null)}
+                      >
+                        {item.label}
+                      </NavLink>
+                    </motion.li>
+                  ))}
+                </motion.ul>
+              </nav>
 
-            <p className="mt-4 px-2 text-[0.95rem] leading-6 text-muted">
-              {mobileNavigationNote}
-            </p>
-          </div>
-        </>
-      ) : null}
+              <motion.div
+                className="mt-4 rounded-[1.2rem] border border-white/80 bg-white/72 px-4 py-3"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <p className="text-[0.95rem] leading-6 text-muted">{mobileNavigationNote}</p>
+              </motion.div>
+            </motion.div>
+          </>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }

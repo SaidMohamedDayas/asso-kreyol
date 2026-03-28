@@ -1,6 +1,7 @@
 import PrimaryButton from "@/components/common/PrimaryButton";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionHeading from "@/components/common/SectionHeading";
+import Reveal from "@/components/shared/Reveal";
 import { cn } from "@/lib/utils";
 
 const variantClasses = {
@@ -26,7 +27,7 @@ export default function PageCta({
   return (
     <aside
       className={cn(
-        "surface-card relative isolate grid gap-5 px-5 py-5 sm:gap-6 sm:px-8 sm:py-7 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end",
+        "surface-card relative isolate grid gap-6 px-5 py-5 sm:gap-7 sm:px-8 sm:py-8 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end",
         variantClasses[variant] || variantClasses.default,
         className
       )}
@@ -44,33 +45,38 @@ export default function PageCta({
         className="pointer-events-none absolute bottom-0 left-0 h-32 w-32 rounded-full bg-primary/8 blur-3xl"
       />
 
-      <div className="relative space-y-3">
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <SectionHeading
-          as="h2"
-          className="max-w-none text-[2rem] sm:text-4xl xl:text-5xl"
-        >
-          {title}
-        </SectionHeading>
-        {description ? (
-          <p className="max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
-            {description}
-          </p>
-        ) : null}
-      </div>
+      <Reveal variant="fadeUp" className="relative">
+        <div className="space-y-4">
+          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+          <SectionHeading
+            as="h2"
+            className="max-w-none text-[2rem] sm:text-4xl xl:text-5xl"
+          >
+            {title}
+          </SectionHeading>
+          {description ? (
+            <p className="max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
+              {description}
+            </p>
+          ) : null}
+          <div className="fine-rule max-w-xl" />
+        </div>
+      </Reveal>
 
-      <div className="relative flex flex-col gap-3 sm:flex-row xl:flex-col 2xl:flex-row">
-        {primaryAction ? (
-          <PrimaryButton href={primaryAction.href} className="w-full sm:w-auto">
-            {primaryAction.label}
-          </PrimaryButton>
-        ) : null}
-        {secondaryAction ? (
-          <SecondaryButton href={secondaryAction.href} className="w-full sm:w-auto">
-            {secondaryAction.label}
-          </SecondaryButton>
-        ) : null}
-      </div>
+      <Reveal variant="softScale" delay={0.08} className="relative xl:justify-self-end">
+        <div className="flex flex-col gap-3 rounded-[1.45rem] border border-white/80 bg-white/74 p-3 shadow-[0_22px_44px_-38px_rgba(29,25,21,0.18)] sm:flex-row sm:p-4 xl:min-w-[18rem] xl:flex-col 2xl:flex-row">
+          {primaryAction ? (
+            <PrimaryButton href={primaryAction.href} className="w-full sm:w-auto">
+              {primaryAction.label}
+            </PrimaryButton>
+          ) : null}
+          {secondaryAction ? (
+            <SecondaryButton href={secondaryAction.href} className="w-full sm:w-auto">
+              {secondaryAction.label}
+            </SecondaryButton>
+          ) : null}
+        </div>
+      </Reveal>
     </aside>
   );
 }

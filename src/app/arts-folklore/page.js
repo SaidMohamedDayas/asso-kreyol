@@ -5,6 +5,7 @@ import SectionContainer from "@/components/common/SectionContainer";
 import SiteFrame from "@/components/layout/SiteFrame";
 import InfoCardGrid from "@/components/shared/InfoCardGrid";
 import PageCta from "@/components/shared/PageCta";
+import Reveal from "@/components/shared/Reveal";
 import VisualMosaic from "@/components/shared/VisualMosaic";
 import { getPublicPage } from "@/data/pages";
 import { createPageMetadata } from "@/lib/metadata";
@@ -28,30 +29,34 @@ export default function ArtsFolklorePage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-start">
-          <ContentBlock
-            eyebrow={page.sections.intro.eyebrow}
-            title={page.sections.intro.title}
-            paragraphs={page.sections.intro.paragraphs}
-          />
-          <aside className="surface-card bg-[linear-gradient(180deg,rgba(238,180,39,0.1),rgba(255,255,255,0.82))] px-6 py-6 text-sm leading-7 text-muted sm:px-7">
-            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-              {page.sections.intro.aside.eyebrow}
-            </p>
-            <h3 className="mt-4 text-[1.95rem] text-foreground sm:text-4xl">
-              {page.sections.intro.aside.title}
-            </h3>
-            <p className="mt-4">{page.sections.intro.aside.description}</p>
-          </aside>
-        </div>
+        <Reveal variant="fadeUp">
+          <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1fr)_20rem] xl:items-start">
+            <ContentBlock
+              eyebrow={page.sections.intro.eyebrow}
+              title={page.sections.intro.title}
+              paragraphs={page.sections.intro.paragraphs}
+            />
+            <aside className="surface-card bg-[linear-gradient(180deg,rgba(238,180,39,0.1),rgba(255,255,255,0.82))] px-6 py-6 text-sm leading-7 text-muted sm:px-7">
+              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+                {page.sections.intro.aside.eyebrow}
+              </p>
+              <h3 className="mt-4 text-[1.95rem] text-foreground sm:text-4xl">
+                {page.sections.intro.aside.title}
+              </h3>
+              <p className="mt-4">{page.sections.intro.aside.description}</p>
+            </aside>
+          </div>
+        </Reveal>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <ContentBlock
-          eyebrow={page.sections.formats.eyebrow}
-          title={page.sections.formats.title}
-          paragraphs={page.sections.formats.description}
-        />
+        <Reveal variant="fadeUp">
+          <ContentBlock
+            eyebrow={page.sections.formats.eyebrow}
+            title={page.sections.formats.title}
+            paragraphs={page.sections.formats.description}
+          />
+        </Reveal>
         <InfoCardGrid
           items={page.sections.formats.items}
           className="mt-10"
@@ -60,7 +65,8 @@ export default function ArtsFolklorePage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="surface-card bg-[linear-gradient(180deg,rgba(238,180,39,0.12),rgba(255,255,255,0.92))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+        <Reveal variant="fadeUp">
+          <div className="surface-card bg-[linear-gradient(180deg,rgba(238,180,39,0.12),rgba(255,255,255,0.92))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <div className="grid gap-5 sm:gap-6 xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] xl:items-stretch">
             <article className="rounded-[2rem] border border-white/80 bg-[linear-gradient(155deg,rgba(255,255,255,0.72),rgba(255,255,255,0.56))] p-6 shadow-[0_26px_58px_-42px_rgba(29,25,21,0.28)] sm:p-8">
               {page.sections.kreyolodays.featured.imageSrc ? (
@@ -98,15 +104,18 @@ export default function ArtsFolklorePage() {
             className="mt-6"
             columns="md:grid-cols-2 xl:grid-cols-4"
           />
-        </div>
+          </div>
+        </Reveal>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <ContentBlock
-          eyebrow={page.sections.gallery.eyebrow}
-          title={page.sections.gallery.title}
-          paragraphs={page.sections.gallery.description}
-        />
+        <Reveal variant="fadeUp">
+          <ContentBlock
+            eyebrow={page.sections.gallery.eyebrow}
+            title={page.sections.gallery.title}
+            paragraphs={page.sections.gallery.description}
+          />
+        </Reveal>
         <VisualMosaic items={page.sections.gallery.items} className="mt-10" />
       </SectionContainer>
 

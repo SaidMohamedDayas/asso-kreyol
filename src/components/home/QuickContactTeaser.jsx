@@ -1,6 +1,7 @@
 import PrimaryButton from "@/components/common/PrimaryButton";
 import SecondaryButton from "@/components/common/SecondaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
+import Reveal from "@/components/shared/Reveal";
 
 export default function QuickContactTeaser({ contact }) {
   return (
@@ -16,35 +17,40 @@ export default function QuickContactTeaser({ contact }) {
         />
 
         <div className="relative grid gap-6 sm:gap-8 xl:grid-cols-[minmax(0,1fr)_22rem] xl:items-center">
-          <div className="space-y-4 sm:space-y-5">
-            <p className="eyebrow">{contact.eyebrow}</p>
-            <h2 className="max-w-3xl text-[2rem] sm:text-4xl xl:text-5xl">
-              {contact.title}
-            </h2>
-            <p className="max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
-              {contact.description}
-            </p>
-            <div className="fine-rule max-w-xl" />
-            <p className="text-sm font-medium text-secondary">{contact.note}</p>
-          </div>
-
-          <div className="rounded-[1.75rem] border border-white/80 bg-white/78 p-5 shadow-[0_24px_48px_-40px_rgba(29,25,21,0.24)] sm:p-6">
-            <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
-              Contact direct
-            </p>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              TODO - Les modalités pratiques et les usages de contact seront précisés
-              ultérieurement.
-            </p>
-            <div className="mt-6 flex flex-col gap-3">
-              <PrimaryButton href={contact.primaryCta.href} className="w-full">
-                {contact.primaryCta.label}
-              </PrimaryButton>
-              <SecondaryButton href={contact.secondaryCta.href} className="w-full">
-                {contact.secondaryCta.label}
-              </SecondaryButton>
+          <Reveal variant="fadeUp">
+            <div className="space-y-4 sm:space-y-5">
+              <p className="eyebrow">{contact.eyebrow}</p>
+              <h2 className="max-w-3xl text-[2rem] sm:text-4xl xl:text-5xl">
+                {contact.title}
+              </h2>
+              <p className="max-w-2xl text-[0.98rem] leading-7 text-muted sm:text-lg sm:leading-8">
+                {contact.description}
+              </p>
+              <div className="fine-rule max-w-xl" />
+              <span className="tag-pill">{contact.note}</span>
             </div>
-          </div>
+          </Reveal>
+
+          <Reveal variant="softScale" delay={0.08}>
+            <div className="rounded-[1.75rem] border border-white/80 bg-white/78 p-5 shadow-[0_24px_48px_-40px_rgba(29,25,21,0.24)] sm:p-6">
+              <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
+                Contact direct
+              </p>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                TODO - Les modalités pratiques et les usages de contact seront précisées
+                ultérieurement.
+              </p>
+              <div className="fine-rule mt-5" />
+              <div className="mt-6 flex flex-col gap-3">
+                <PrimaryButton href={contact.primaryCta.href} className="w-full">
+                  {contact.primaryCta.label}
+                </PrimaryButton>
+                <SecondaryButton href={contact.secondaryCta.href} className="w-full">
+                  {contact.secondaryCta.label}
+                </SecondaryButton>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </aside>
     </SectionContainer>

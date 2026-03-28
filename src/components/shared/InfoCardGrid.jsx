@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "@/components/shared/Reveal";
 import { cn, isExternalHref } from "@/lib/utils";
 
 const toneClasses = {
@@ -83,30 +84,28 @@ export default function InfoCardGrid({
 
         if (hasLink && isExternalHref(item.href)) {
           return (
-            <a
-              key={item.title}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer"
-              className={classes}
-            >
-              {content}
-            </a>
+            <Reveal key={item.title} delay={index * 0.06} className="h-full">
+              <a href={item.href} target="_blank" rel="noreferrer" className={classes}>
+                {content}
+              </a>
+            </Reveal>
           );
         }
 
         if (hasLink) {
           return (
-            <Link key={item.title} href={item.href} className={classes}>
-              {content}
-            </Link>
+            <Reveal key={item.title} delay={index * 0.06} className="h-full">
+              <Link href={item.href} className={classes}>
+                {content}
+              </Link>
+            </Reveal>
           );
         }
 
         return (
-          <article key={item.title} className={classes}>
-            {content}
-          </article>
+          <Reveal key={item.title} delay={index * 0.06} className="h-full">
+            <article className={classes}>{content}</article>
+          </Reveal>
         );
       })}
     </div>

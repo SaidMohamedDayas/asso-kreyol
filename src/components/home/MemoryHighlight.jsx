@@ -2,6 +2,7 @@ import Image from "next/image";
 import ContentBlock from "@/components/common/ContentBlock";
 import PrimaryButton from "@/components/common/PrimaryButton";
 import SectionContainer from "@/components/common/SectionContainer";
+import Reveal from "@/components/shared/Reveal";
 
 export default function MemoryHighlight({ section }) {
   const [featuredItem, ...otherItems] = section.items;
@@ -25,20 +26,23 @@ export default function MemoryHighlight({ section }) {
         />
 
         <div className="relative grid gap-6 xl:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] xl:items-stretch">
-          <div className="flex h-full flex-col gap-6 rounded-[1.7rem] border border-white/75 bg-white/62 p-5 sm:rounded-[1.9rem] sm:p-8">
-            <ContentBlock
-              eyebrow={section.eyebrow}
-              title={section.title}
-              paragraphs={section.description}
-              className="max-w-none"
-            />
-            <div className="fine-rule" />
-            <PrimaryButton href={section.cta.href} className="w-full self-start sm:w-auto">
-              {section.cta.label}
-            </PrimaryButton>
-          </div>
+          <Reveal variant="fadeUp">
+            <div className="flex h-full flex-col gap-6 rounded-[1.7rem] border border-white/75 bg-white/62 p-5 sm:rounded-[1.9rem] sm:p-8">
+              <ContentBlock
+                eyebrow={section.eyebrow}
+                title={section.title}
+                paragraphs={section.description}
+                className="max-w-none"
+              />
+              <div className="fine-rule" />
+              <PrimaryButton href={section.cta.href} className="w-full self-start sm:w-auto">
+                {section.cta.label}
+              </PrimaryButton>
+            </div>
+          </Reveal>
 
-          <article className="rounded-[1.8rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] p-5 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:rounded-[2rem] sm:p-8">
+          <Reveal variant="softScale" delay={0.08}>
+            <article className="rounded-[1.8rem] border border-white/80 bg-[linear-gradient(160deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] p-5 shadow-[0_28px_64px_-42px_rgba(29,25,21,0.32)] sm:rounded-[2rem] sm:p-8">
             {featuredItem.imageSrc ? (
               <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-[1.5rem] border border-white/80 bg-muted/70">
                 <Image
@@ -46,11 +50,17 @@ export default function MemoryHighlight({ section }) {
                   alt={featuredItem.imageAlt || ""}
                   fill
                   sizes="(max-width: 1279px) 100vw, 46vw"
-                  className={featuredItem.imageFit === "contain" ? "object-contain p-4" : "object-cover"}
+                  className={
+                    featuredItem.imageFit === "contain" ? "object-contain p-4" : "object-cover"
+                  }
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/52 to-transparent"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,249,246,0.1),rgba(251,249,246,0.02))]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/58 to-transparent"
                 />
               </div>
             ) : null}
@@ -63,38 +73,41 @@ export default function MemoryHighlight({ section }) {
             <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:mt-5 sm:text-base sm:leading-8">
               {featuredItem.description}
             </p>
-          </article>
+            <div className="fine-rule mt-6 max-w-xs" />
+            </article>
+          </Reveal>
         </div>
 
         <div className="relative mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {otherItems.map((item, index) => (
-            <article
-              key={item.title}
-              className={`rounded-[1.6rem] border border-white/75 px-5 py-5 shadow-[0_24px_48px_-40px_rgba(29,25,21,0.28)] backdrop-blur sm:px-6 sm:py-6 ${
-                index === 0
-                  ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.7))]"
-                  : "bg-white/68"
-              }`}
-            >
-              {item.imageSrc ? (
-                <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.35rem] border border-white/80 bg-white/68">
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt || ""}
-                    fill
-                    sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 24vw"
-                    className={item.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
-                  />
-                </div>
-              ) : null}
-              <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
-                {item.label}
-              </p>
-              <h3 className="mt-4 text-[1.85rem] leading-tight sm:text-3xl">{item.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-muted sm:text-base sm:leading-7">
-                {item.description}
-              </p>
-            </article>
+            <Reveal key={item.title} delay={0.12 + index * 0.06} className="h-full">
+              <article
+                className={`interactive-card rounded-[1.6rem] border border-white/75 px-5 py-5 shadow-[0_24px_48px_-40px_rgba(29,25,21,0.28)] backdrop-blur sm:px-6 sm:py-6 ${
+                  index === 0
+                    ? "bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.7))]"
+                    : "bg-white/68"
+                }`}
+              >
+                {item.imageSrc ? (
+                  <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.35rem] border border-white/80 bg-white/68">
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt || ""}
+                      fill
+                      sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 24vw"
+                      className={item.imageFit === "contain" ? "object-contain p-3" : "object-cover"}
+                    />
+                  </div>
+                ) : null}
+                <p className="text-sm font-semibold tracking-[0.22em] text-secondary uppercase">
+                  {item.label}
+                </p>
+                <h3 className="mt-4 text-[1.85rem] leading-tight sm:text-3xl">{item.title}</h3>
+                <p className="mt-4 text-sm leading-6 text-muted sm:text-base sm:leading-7">
+                  {item.description}
+                </p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

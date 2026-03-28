@@ -5,6 +5,7 @@ import SectionContainer from "@/components/common/SectionContainer";
 import SiteFrame from "@/components/layout/SiteFrame";
 import InfoCardGrid from "@/components/shared/InfoCardGrid";
 import PageCta from "@/components/shared/PageCta";
+import Reveal from "@/components/shared/Reveal";
 import VisualMosaic from "@/components/shared/VisualMosaic";
 import { getPublicPage } from "@/data/pages";
 import { createPageMetadata } from "@/lib/metadata";
@@ -28,29 +29,32 @@ export default function MemoiresHistoirePage() {
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:items-start">
-          <ContentBlock
-            eyebrow={page.sections.intro.eyebrow}
-            title={page.sections.intro.title}
-            paragraphs={page.sections.intro.paragraphs}
-          />
+        <Reveal variant="fadeUp">
+          <div className="grid gap-8 sm:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:items-start">
+            <ContentBlock
+              eyebrow={page.sections.intro.eyebrow}
+              title={page.sections.intro.title}
+              paragraphs={page.sections.intro.paragraphs}
+            />
 
-          <article className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.82))] px-6 py-6 sm:px-7 sm:py-7">
-            <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
-              {page.sections.intro.aside.eyebrow}
-            </p>
-            <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
-              {page.sections.intro.aside.title}
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-              {page.sections.intro.aside.description}
-            </p>
-          </article>
-        </div>
+            <article className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.82))] px-6 py-6 sm:px-7 sm:py-7">
+              <p className="text-sm font-semibold tracking-[0.24em] text-secondary uppercase">
+                {page.sections.intro.aside.eyebrow}
+              </p>
+              <h3 className="mt-4 text-[1.95rem] sm:text-4xl">
+                {page.sections.intro.aside.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
+                {page.sections.intro.aside.description}
+              </p>
+            </article>
+          </div>
+        </Reveal>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <div className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.9))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+        <Reveal variant="fadeUp">
+          <div className="surface-card bg-[linear-gradient(180deg,rgba(186,33,29,0.08),rgba(255,255,255,0.9))] px-6 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
           <div className="grid gap-5 sm:gap-6 xl:grid-cols-[minmax(0,0.84fr)_minmax(0,1.16fr)] xl:items-stretch">
             <ContentBlock
               eyebrow={page.sections.cycle.eyebrow}
@@ -88,15 +92,18 @@ export default function MemoiresHistoirePage() {
             className="mt-6"
             columns="md:grid-cols-2 xl:grid-cols-4"
           />
-        </div>
+          </div>
+        </Reveal>
       </SectionContainer>
 
       <SectionContainer className="pt-0">
-        <ContentBlock
-          eyebrow={page.sections.resources.eyebrow}
-          title={page.sections.resources.title}
-          paragraphs={page.sections.resources.description}
-        />
+        <Reveal variant="fadeUp">
+          <ContentBlock
+            eyebrow={page.sections.resources.eyebrow}
+            title={page.sections.resources.title}
+            paragraphs={page.sections.resources.description}
+          />
+        </Reveal>
         <VisualMosaic items={page.sections.resources.items} className="mt-10" />
       </SectionContainer>
 

@@ -1,5 +1,6 @@
 import ContentBlock from "@/components/common/ContentBlock";
 import SectionContainer from "@/components/common/SectionContainer";
+import Reveal from "@/components/shared/Reveal";
 import { isExternalHref } from "@/lib/utils";
 
 const socialMeta = {
@@ -26,10 +27,14 @@ function SocialCard({ item }) {
     tone: "bg-white/72",
   };
   const classes =
-    `surface-card flex h-full flex-col gap-4 px-5 py-5 sm:gap-5 sm:px-7 sm:py-7 ${meta.tone}`;
+    `surface-card interactive-card group relative isolate flex min-h-[15rem] h-full flex-col gap-4 px-5 py-5 sm:gap-5 sm:px-7 sm:py-7 ${meta.tone}`;
 
   const content = (
     <>
+      <div
+        aria-hidden="true"
+        className="absolute right-4 top-4 h-14 w-14 rounded-full border border-white/78 bg-white/44 sm:right-5 sm:top-5 sm:h-16 sm:w-16"
+      />
       <div className="flex items-center justify-between gap-4">
         <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/80 bg-white/78 text-sm font-semibold tracking-[0.18em] text-secondary shadow-[0_14px_30px_-24px_rgba(29,25,21,0.18)]">
           {meta.badge}
@@ -38,9 +43,10 @@ function SocialCard({ item }) {
           {item.platform}
         </p>
       </div>
-      <h3 className="text-[1.85rem] leading-tight sm:text-3xl">{item.platform}</h3>
+      <h3 className="text-[1.8rem] leading-tight sm:text-3xl">{item.platform}</h3>
       <p className="text-sm leading-6 text-muted sm:text-base sm:leading-7">{item.description}</p>
-      <p className="mt-auto text-sm font-semibold text-foreground">
+      <div className="fine-rule mt-auto max-w-[9rem]" />
+      <p className="text-sm font-semibold text-foreground">
         {isExternalHref(item.href) ? "Ouvrir le lien" : "Lien TODO"}
       </p>
     </>
@@ -52,7 +58,7 @@ function SocialCard({ item }) {
         href={item.href}
         target="_blank"
         rel="noreferrer"
-        className={`${classes} interactive-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_28px_60px_-40px_rgba(29,25,21,0.26)]`}
+        className={classes}
       >
         {content}
       </a>
@@ -66,16 +72,20 @@ export default function SocialShowcase({ social }) {
   return (
     <SectionContainer className="pt-2 sm:pt-6">
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
-        <ContentBlock
-          eyebrow={social.eyebrow}
-          title={social.title}
-          paragraphs={social.description}
-          className="max-w-2xl"
-        />
+        <Reveal variant="fadeUp">
+          <ContentBlock
+            eyebrow={social.eyebrow}
+            title={social.title}
+            paragraphs={social.description}
+            className="max-w-2xl"
+          />
+        </Reveal>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {social.items.map((item) => (
-            <SocialCard key={item.platform} item={item} />
+          {social.items.map((item, index) => (
+            <Reveal key={item.platform} delay={index * 0.06} className="h-full">
+              <SocialCard item={item} />
+            </Reveal>
           ))}
         </div>
       </div>

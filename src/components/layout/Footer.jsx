@@ -63,7 +63,7 @@ export default function Footer() {
             © {year} {site.legal.copyrightName}. Tous droits réservés.
           </p>
 
-          <div className="flex flex-wrap items-start gap-3 sm:items-center sm:justify-end sm:gap-4">
+          <div className="flex flex-wrap items-start gap-2.5 sm:items-center sm:justify-end sm:gap-3">
             {socials.map((item) =>
               isExternalHref(item.href) ? (
                 <a
@@ -76,7 +76,10 @@ export default function Footer() {
                   {item.label}
                 </a>
               ) : (
-                <span key={item.key} className="text-sm text-muted">
+                <span
+                  key={item.key}
+                  className="inline-flex items-center rounded-full border border-border/80 bg-white/68 px-3 py-1.5 text-sm text-muted"
+                >
                   {item.label} · {item.handle}
                 </span>
               )
